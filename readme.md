@@ -23,9 +23,9 @@
 ***
 ### ***Screenshots***
 #### Entity Relationship Diagram
-![Entity Relationship Diagram](Diagrams/erd.drawio.png)
+![Entity Relationship Diagram](diagrams/erd.drawio.png)
 #### Component Hierarchy Diagram
-![Component Hierarchy Diagram](Diagrams/component-hierarchy-diagram.drawio.png)
+![Component Hierarchy Diagram](diagrams/component-hierarchy-diagram.drawio.png)
 <!-- #### Rules Page
 ![Rules Page](images/readme-pics/rules-page.png) -->
 ***
@@ -38,6 +38,6 @@
 ***
 ### ***Credits***
 
-##### Jokes: Everyone who's ever told me a joke.
+##### Jokes: Everyone who has ever told me a joke.
 
 <!-- ##### Card Back Image: [PlusPNG.com](https://pluspng.com/png-131540.html) -->
