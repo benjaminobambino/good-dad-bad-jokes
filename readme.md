@@ -30,6 +30,7 @@
 ![Rules Page](images/readme-pics/rules-page.png) -->
 ***
 ### ***Future Updates***
+- [ ] Add user's liked jokes component
 - [ ] Add joke flagging functionality
 - [ ] Add functionality to minimize or eliminate repeated jokes
 - [ ] Add joke search feature
