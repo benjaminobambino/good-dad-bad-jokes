@@ -23,9 +23,9 @@
 ***
 ### ***Screenshots***
 #### Entity Relationship Diagram
-![Entity Relationship Diagram](diagrams/erd.drawio.jpg)
+![Entity Relationship Diagram](Diagrams/erd.drawio.png)
 #### Component Hierarchy Diagram
-![Component Hierarchy Diagram](diagrams/component-hierarchy-diagram.drawio.jpg)
+![Component Hierarchy Diagram](Diagrams/component-hierarchy-diagram.drawio.png)
 <!-- #### Rules Page
 ![Rules Page](images/readme-pics/rules-page.png) -->
 ***
