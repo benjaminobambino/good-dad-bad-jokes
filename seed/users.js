@@ -8,10 +8,24 @@ const main = async () => {
 
   const users = [
     {
-      name: 'Administrator',
+      name: 'Benjamin',
       email: 'benjaminlpeck@gmail.com',
       username: 'admin',
-      password: 'HelloWorld'
+      password: 'HelloWorld1',
+      jokes_contributed: jokesContributed,
+      jokes_liked: [],
+      jokes_viewed: [],
+      jokes_flagged: []
     }
   ];
+
+  await User.insertMany(users);
+  console.log('Created users with jokes!');
 };
+
+const run = async () => {
+  await main();
+  db.close();
+};
+
+run();

@@ -6,9 +6,9 @@ const User = new Schema(
     email: { type: String, required: true },
     username: { type: String, required: true },
     password: { type: String, required: true },
-    contributions: [{ type: Schema.Types.ObjectId, ref: 'jokes' }],
-    liked_jokes: [{ type: Schema.Types.ObjectId, ref: 'jokes' }],
-    flagged_jokes: [{ type: Schema.Types.ObjectId, ref: 'jokes' }]
+    jokes_contributed: [{ type: Schema.Types.ObjectId, ref: 'jokes' }],
+    jokes_liked: [{ type: Schema.Types.ObjectId, ref: 'jokes' }],
+    jokes_viewed: [{ type: Schema.Types.ObjectId, ref: 'jokes' }]
   },
   { timestamps: true }
 );

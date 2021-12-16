@@ -6,7 +6,7 @@ const Joke = new Schema(
     punchline: { type: String, required: true },
     likes: { type: Number, required: true },
     author: { type: Schema.Types.ObjectId, ref: 'users' },
-    seen_by: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+    viewed_by: [{ type: Schema.Types.ObjectId, ref: 'users' }],
     flagged: { type: Boolean, required: true }
   },
   { timestamps: true }
