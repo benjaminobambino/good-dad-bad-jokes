@@ -4,7 +4,7 @@ const { User, Joke } = require('../models');
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const main = async () => {
-  const contributingUser = await User.find({ name: 'Benjamin' });
+  const contributingUser = await User.findOne({ name: 'Benjamin' });
 
   const jokes = [
     {
