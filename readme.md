@@ -33,7 +33,7 @@
 - [ ] Add joke flagging functionality
 - [ ] Add functionality to minimize or eliminate repeated jokes
 - [ ] Add joke search feature
-- [ ] Improve animation
+- [ ] Add user's contributed jokes component
 - [ ] Mobile-friendly design
 - [ ] Add joke categories
 ***
