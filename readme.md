@@ -30,9 +30,10 @@
 ![Rules Page](images/readme-pics/rules-page.png) -->
 ***
 ### ***Future Updates***
-- [ ] Add functionality to minimize or eliminate repeated jokes
 - [ ] Add joke flagging functionality
-- [ ] Improved animation
+- [ ] Add functionality to minimize or eliminate repeated jokes
+- [ ] Add joke search feature
+- [ ] Improve animation
 - [ ] Mobile-friendly design
 - [ ] Add joke categories
 ***
