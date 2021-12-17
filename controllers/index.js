@@ -1,6 +1,6 @@
 const { User, Joke } = require('../models');
 
-// Post -->
+// POST -->
 const createUser = async (req, res) => {
   try {
     const user = await new User(req.body);
@@ -21,7 +21,7 @@ const createJoke = async (req, res) => {
   }
 };
 
-// Get -->
+// GET -->
 const getAllJokes = async (req, res) => {
   try {
     const jokes = await Joke.find();
@@ -53,7 +53,7 @@ const getUserById = async (req, res) => {
   }
 };
 
-// Put
+// PUT -->
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -72,11 +72,32 @@ const updateUser = async (req, res) => {
   }
 };
 
+const updateJoke = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Joke.findByIdAndUpdate(id, req.body, { new: true }, (err, joke) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      if (!joke) {
+        res.status(500).send('Joke not found.');
+      }
+      return res.status(200).json(joke);
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500);
+  }
+};
+
+// DELETE -->
+
 module.exports = {
   createUser,
   createJoke,
   getAllJokes,
   getAllUsers,
   getUserById,
-  updateUser
+  updateUser,
+  updateJoke
 };

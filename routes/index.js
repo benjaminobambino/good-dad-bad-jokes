@@ -11,5 +11,6 @@ router.get('/users', controllers.getAllUsers);
 router.get('/users/:id', controllers.getUserById);
 
 router.put('/users/:id', controllers.updateUser);
+router.put('/jokes/:id', controllers.updateJoke);
 
 module.exports = router;
