@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState, UseState } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import Home from './pages/Home';
 import About from './pages/About';
-import { JOKE_BASE_URL } from './globals';
+import { JOKE_BASE_URL, USER_BASE_URL } from './globals';
 
 const App = () => {
+  const [jokes, setJokes] = useState([]);
+
   const getJokes = async () => {
     const res = await axios.get(JOKE_BASE_URL);
-    console.log(res.data.jokes);
+    setJokes(res.data.jokes);
   };
 
-  getJokes();
+  const getUsers = async () => {
+    const res = await axios.get(USER_BASE_URL);
+    console.log(res.data.users);
+  };
+
+  useEffect(() => {
+    getJokes();
+    getUsers();
+  }, []);
 
   return (
     <div className="App">
