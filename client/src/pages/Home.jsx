@@ -1,10 +1,9 @@
 import React from 'react'
 
-const Home = (props) => {
+const Home = ({ getFirstJoke, firstJoke }) => {
   return(
     <div>
-      <h2>Welcome to Good Dad Bad Jokes!</h2>
-      <p>Good Dad Bad Jokes is funny.</p>
+      <h5>Let the Jokes Begin</h5>
     </div>
   )
 }
