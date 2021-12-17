@@ -53,6 +53,15 @@ const getUserById = async (req, res) => {
   }
 };
 
+const getFlaggedJokes = async (req, res) => {
+  try {
+    const jokes = await Joke.find({ flagged: true });
+    return res.status(200).json({ jokes });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 // PUT -->
 const updateUser = async (req, res) => {
   try {
@@ -125,6 +134,7 @@ module.exports = {
   getAllJokes,
   getAllUsers,
   getUserById,
+  getFlaggedJokes,
   updateUser,
   updateJoke,
   deleteUser,

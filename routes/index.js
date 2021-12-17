@@ -9,6 +9,7 @@ router.get('/', (req, res) => res.send('This is root!'));
 router.get('/jokes', controllers.getAllJokes);
 router.get('/users', controllers.getAllUsers);
 router.get('/users/:id', controllers.getUserById);
+router.get('/jokes/flagged', controllers.getFlaggedJokes);
 
 router.put('/users/:id', controllers.updateUser);
 router.put('/jokes/:id', controllers.updateJoke);
