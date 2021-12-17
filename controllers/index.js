@@ -1,5 +1,26 @@
 const { User, Joke } = require('../models');
 
+// Post -->
+const createUser = async (req, res) => {
+  try {
+    const user = await new User(req.body);
+    await user.save();
+    return res.status(201).json({ user });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+const createJoke = async (req, res) => {
+  try {
+    const joke = await new Joke(req.body);
+    await joke.save();
+    return res.status(201).json({ joke });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
 // Get -->
 const getAllJokes = async (req, res) => {
   try {
@@ -32,31 +53,30 @@ const getUserById = async (req, res) => {
   }
 };
 
-// Post -->
-const createUser = async (req, res) => {
+// Put
+const updateUser = async (req, res) => {
   try {
-    const user = await new User(req.body);
-    await user.save();
-    return res.status(201).json({ user });
+    const { id } = req.params;
+    await User.findByIdAndUpdate(id, req.body, { new: true }, (err, user) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      if (!user) {
+        res.status(500).send('User not found.');
+      }
+      return res.status(200).json(user);
+    });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-};
-
-const createJoke = async (req, res) => {
-  try {
-    const joke = await new Joke(req.body);
-    await joke.save();
-    return res.status(201).json({ joke });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
+    console.log(error.message);
+    return res.status(500);
   }
 };
 
 module.exports = {
+  createUser,
+  createJoke,
   getAllJokes,
   getAllUsers,
   getUserById,
-  createUser,
-  createJoke
+  updateUser
 };
