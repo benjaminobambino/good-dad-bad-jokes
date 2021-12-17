@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Jokes = (props) => {
   useEffect(() => {
@@ -7,10 +7,11 @@ const Jokes = (props) => {
 
   return(
     <div>
-      {props.firstJoke ? (
+      {props.currentJoke ? (
       <div>
-        <p>{ props.firstJoke.setup }</p>
-        <p>{ props.firstJoke.punchline }</p>
+        <p>{ props.currentJoke.setup }</p>
+        <p>{ props.currentJoke.punchline }</p>
+        <button onClick={props.incrementJokes}>Next</button>
       </div>
       ) : null}
     </div>

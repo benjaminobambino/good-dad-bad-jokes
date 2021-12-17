@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Home = ({ getFirstJoke, firstJoke }) => {
+const Home = () => {
   return(
     <div>
-      <h5>Let the Jokes Begin</h5>
+      <Link to="/jokes">
+        <h5>Let the Jokes Begin</h5>
+      </Link>
     </div>
   )
 }

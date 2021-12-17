@@ -12,8 +12,8 @@ const App = () => {
   const [jokes, setJokes] = useState([]);
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [firstJoke, setFirstJoke] = useState({});
-  const [currentJoke, setCurrentJoke] = useState(firstJoke);
+  // const [firstJoke, setFirstJoke] = useState({});
+  const [currentJoke, setCurrentJoke] = useState({});
 
   useEffect(() => {
     const getJokes = async () => {
@@ -35,8 +35,19 @@ const App = () => {
   const getFirstJoke = () => {
     const randomizer = Math.floor(Math.random() * jokes.length);
     const index = randomizer - 1;
-    setFirstJoke(jokes[index]);
-    console.log(firstJoke);
+    // setFirstJoke(jokes[index]);
+    setCurrentJoke(jokes[index]);
+  };
+
+  const incrementJokes = () => {
+    const index = jokes.indexOf(currentJoke);
+    const lastIndex = jokes.length - 1;
+    if (index === lastIndex) {
+      setCurrentJoke(jokes[0]);
+    } else {
+      setCurrentJoke(jokes[index + 1]);
+    }
+    console.log(index);
   };
 
   return (
@@ -55,13 +66,15 @@ const App = () => {
             render={(props) => (
               <Jokes
                 {...props}
-                firstJoke={firstJoke}
-                getFirstJoke={getFirstJoke}
                 jokes={jokes}
+                // firstJoke={firstJoke}
+                getFirstJoke={getFirstJoke}
+                currentJoke={currentJoke}
+                incrementJokes={incrementJokes}
               />
             )}
           />
-          <Route path="/credits" component={About} />
+          <Route path="/about" component={About} />
         </Switch>
       </main>
     </div>
