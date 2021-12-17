@@ -13,4 +13,7 @@ router.get('/users/:id', controllers.getUserById);
 router.put('/users/:id', controllers.updateUser);
 router.put('/jokes/:id', controllers.updateJoke);
 
+router.delete('/users/:id', controllers.deleteUser);
+router.delete('/jokes/:id', controllers.deleteJoke);
+
 module.exports = router;
