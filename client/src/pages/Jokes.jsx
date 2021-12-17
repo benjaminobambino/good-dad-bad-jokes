@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import JokeCard from "../components/JokeCard";
 
 const Jokes = (props) => {
   useEffect(() => {
@@ -7,14 +8,11 @@ const Jokes = (props) => {
 
   return(
     <div>
-      {props.currentJoke ? (
-      <div>
-        <p>{ props.currentJoke.setup }</p>
-        <p>{ props.currentJoke.punchline }</p>
-        <button onClick={props.decrementJokes}>Previous</button>
-        <button onClick={props.incrementJokes}>Next</button>
-      </div>
-      ) : null}
+      <JokeCard 
+        currentJoke={props.currentJoke} 
+        decrementJokes={props.decrementJokes} 
+        incrementJokes={props.incrementJokes}
+      />
     </div>
   )
 }

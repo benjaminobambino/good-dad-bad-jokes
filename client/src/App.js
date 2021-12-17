@@ -12,7 +12,6 @@ const App = () => {
   const [jokes, setJokes] = useState([]);
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
-  // const [firstJoke, setFirstJoke] = useState({});
   const [currentJoke, setCurrentJoke] = useState({});
 
   useEffect(() => {
@@ -35,7 +34,6 @@ const App = () => {
   const getFirstJoke = () => {
     const randomizer = Math.floor(Math.random() * jokes.length);
     const index = randomizer - 1;
-    // setFirstJoke(jokes[index]);
     setCurrentJoke(jokes[index]);
   };
 
@@ -74,7 +72,6 @@ const App = () => {
               <Jokes
                 {...props}
                 jokes={jokes}
-                // firstJoke={firstJoke}
                 getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
                 decrementJokes={decrementJokes}
