@@ -42,11 +42,18 @@ const App = () => {
   const incrementJokes = () => {
     const index = jokes.indexOf(currentJoke);
     const lastIndex = jokes.length - 1;
-    if (index === lastIndex) {
-      setCurrentJoke(jokes[0]);
-    } else {
-      setCurrentJoke(jokes[index + 1]);
-    }
+    index === lastIndex
+      ? setCurrentJoke(jokes[0])
+      : setCurrentJoke(jokes[index + 1]);
+    console.log(index);
+  };
+
+  const decrementJokes = () => {
+    const index = jokes.indexOf(currentJoke);
+    const lastIndex = jokes.length - 1;
+    index === 0
+      ? setCurrentJoke(jokes[lastIndex])
+      : setCurrentJoke(jokes[index - 1]);
     console.log(index);
   };
 
@@ -70,6 +77,7 @@ const App = () => {
                 // firstJoke={firstJoke}
                 getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
+                decrementJokes={decrementJokes}
                 incrementJokes={incrementJokes}
               />
             )}
