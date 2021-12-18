@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import Jokes from './pages/Jokes';
+import SignUp from './forms/SignUp';
 import { JOKE_BASE_URL, USER_BASE_URL } from './globals';
 
 const App = () => {
@@ -80,6 +81,10 @@ const App = () => {
             )}
           />
           <Route path="/about" component={About} />
+          <Route
+            path="/signup"
+            render={(props) => <SignUp {...props} users={users} />}
+          />
         </Switch>
       </main>
     </div>

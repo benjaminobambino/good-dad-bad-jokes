@@ -7,6 +7,7 @@ const PublicNavBar = (props) => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/jokes">Jokes</NavLink>
       <NavLink to="/about">About</NavLink>
+      <NavLink to="/signup">Sign Up</NavLink>
     </div>
   )
 }
