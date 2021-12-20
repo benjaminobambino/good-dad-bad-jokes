@@ -106,7 +106,7 @@ const SignUp = (props) => {
             ...state,
             valid: false,
             displayedMessage:
-              'Passwords must contain at least one letter, one number, and one special character.'
+              'Passwords must contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
           };
         } else {
           console.log(state)
@@ -150,7 +150,8 @@ const SignUp = (props) => {
     e.preventDefault();
     dispatch({ type: 'submitInfo' })
     const existingUser = props.users.find(({ username }) => username === state.username)
-    if(state.nameValid && state.emailValid && state.usernameValid && state.passwordValid && state.passwordConfirmValid && (state.password === state.passwordConfirm) && !existingUser) {
+    const meetsConditions = state.nameValid && state.emailValid && (state.email.length >= 3) && state.usernameValid && (state.username.length >= 5) && state.passwordValid && (state.password.length >= 7) && /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/.test(state.password) && state.passwordConfirmValid && (state.password === state.passwordConfirm) && !existingUser
+    if(meetsConditions) {
       addUser();
     }
   };
