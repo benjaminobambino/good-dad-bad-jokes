@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const Home = () => {
+const Home = (props) => {
+  const [welcomeMessage, setWelcomeMessage] = useState('')
+
+  const getWelcomeMessage = () => {
+    props.loggedIn ? setWelcomeMessage(`Welcome back, ${props.currentUser.name}!`) : setWelcomeMessage('Welcome to Good Dad Bad Jokes!')
+  }
+
+  useEffect(() => {
+    getWelcomeMessage()
+  }, [])
+
   return(
     <div>
-      <p>Welcome to Good Dad Bad Jokes!</p>
+      <p>{welcomeMessage}</p>
       <Link to="/jokes">
         <h5>Let the Jokes Begin</h5>
       </Link>

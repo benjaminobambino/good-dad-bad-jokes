@@ -113,7 +113,7 @@ const SignUp = (props) => {
           return {
             ...state,
             valid: true,
-            displayedMessage: 'Thanks for signing up!',
+            displayedMessage: `Thanks for signing up! Please log in.`,
             name: '',
             email: '',
             username: '',
@@ -178,7 +178,7 @@ const SignUp = (props) => {
             dispatch({ type: 'addName', payload: e.target.value })
           }
         />
-        <label htmlFor="username">Name</label>
+        <label htmlFor="name">Name</label>
 
         <input
           type="email"
@@ -189,7 +189,7 @@ const SignUp = (props) => {
             dispatch({ type: 'addEmail', payload: e.target.value })
           }
         />
-        <label htmlFor="username">Email</label>
+        <label htmlFor="email">Email</label>
 
         <input
           type="text"

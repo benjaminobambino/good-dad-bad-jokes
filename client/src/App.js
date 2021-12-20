@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Jokes from './pages/Jokes';
 import SignUp from './forms/SignUp';
+import LogIn from './forms/LogIn';
+import Settings from './pages/Settings';
 import { JOKE_BASE_URL, USER_BASE_URL } from './globals';
 
 const App = () => {
@@ -14,6 +16,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentJoke, setCurrentJoke] = useState({});
+  const [currentUser, setCurrentUser] = useState('');
 
   const getJokes = async () => {
     const res = await axios.get(JOKE_BASE_URL);
@@ -46,7 +49,6 @@ const App = () => {
     index === lastIndex
       ? setCurrentJoke(jokes[0])
       : setCurrentJoke(jokes[index + 1]);
-    console.log(index);
   };
 
   const decrementJokes = () => {
@@ -55,7 +57,6 @@ const App = () => {
     index === 0
       ? setCurrentJoke(jokes[lastIndex])
       : setCurrentJoke(jokes[index - 1]);
-    console.log(index);
   };
 
   return (
@@ -66,7 +67,14 @@ const App = () => {
           <Route
             exact
             path="/"
-            component={(props) => <Home {...props} jokes={jokes} />}
+            component={(props) => (
+              <Home
+                {...props}
+                jokes={jokes}
+                loggedIn={loggedIn}
+                currentUser={currentUser}
+              />
+            )}
           />
           <Route
             exact
@@ -87,6 +95,31 @@ const App = () => {
             path="/signup"
             render={(props) => (
               <SignUp {...props} users={users} getUsers={getUsers} />
+            )}
+          />
+          <Route
+            path="/login"
+            render={(props) => (
+              <LogIn
+                {...props}
+                users={users}
+                getUsers={getUsers}
+                toggleLoggedIn={toggleLoggedIn}
+                setCurrentUser={setCurrentUser}
+              />
+            )}
+          />
+          <Route
+            path="/settings"
+            component={(props) => (
+              <Settings
+                {...props}
+                users={users}
+                getUsers={getUsers}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                toggleLoggedIn={toggleLoggedIn}
+              />
             )}
           />
         </Switch>
