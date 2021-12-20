@@ -1,4 +1,4 @@
-import React, { useEffect, useState, UseState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
@@ -15,16 +15,18 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentJoke, setCurrentJoke] = useState({});
 
+  const getJokes = async () => {
+    const res = await axios.get(JOKE_BASE_URL);
+    setJokes(res.data.jokes);
+  };
+
+  const getUsers = async () => {
+    const res = await axios.get(USER_BASE_URL);
+    setUsers(res.data.users);
+  };
+
   useEffect(() => {
-    const getJokes = async () => {
-      const res = await axios.get(JOKE_BASE_URL);
-      setJokes(res.data.jokes);
-    };
     getJokes();
-    const getUsers = async () => {
-      const res = await axios.get(USER_BASE_URL);
-      setUsers(res.data.users);
-    };
     getUsers();
   }, []);
 
@@ -83,7 +85,9 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route
             path="/signup"
-            render={(props) => <SignUp {...props} users={users} />}
+            render={(props) => (
+              <SignUp {...props} users={users} getUsers={getUsers} />
+            )}
           />
         </Switch>
       </main>

@@ -1,61 +1,91 @@
+import axios from 'axios';
 import React, { useReducer } from 'react';
+import { USER_BASE_URL } from '../globals';
 
 const SignUp = (props) => {
+
   const iState = {
     name: '',
+    nameValid: '',
     email: '',
+    emailValid: '',
     username: '',
+    usernameValid: '',
     password: '',
+    passwordValid: '',
     passwordConfirm: '',
-    valid: '',
-    displayedMessage: ''
+    passwordConfirmValid: '',
+    displayedMessage: '',
+    valid: ''
   };
 
   const reducer = (state, action) => {
     switch (action.type) {
       case 'addName':
-        return {
-          ...state,
-          name: action.payload,
-          valid: '',
-          displayedMessage: ''
-        };
+          return {
+            ...state,
+            name: action.payload,
+            nameValid: true,
+            displayedMessage: '',
+            valid: ''
+          };
       case 'addEmail':
         return {
           ...state,
           email: action.payload,
-          valid: '',
-          displayedMessage: ''
+          emailValid: true,
+          displayedMessage: '',
+          valid: ''
         };
       case 'addUser':
         return {
           ...state,
           username: action.payload,
-          valid: '',
-          displayedMessage: ''
+          usernameValid: true,
+          displayedMessage: '',
+          valid: ''
         };
       case 'addPassword':
         return {
           ...state,
           password: action.payload,
-          valid: '',
-          displayedMessage: ''
+          passwordValid: true,
+          displayedMessage: '',
+          valid: ''
         };
       case 'confirmPassword':
-        return {
-          ...state,
-          passwordConfirm: action.payload,
-          valid: '',
-          displayedMessage:
-            state.passwordConfirm === state.password ? '' : 'Passwords must match'
-        };
+          return {
+            ...state,
+            passwordConfirm: action.payload,
+            displayedMessage: '',
+            valid: '',
+            passwordConfirmValid: true,
+          };
       case 'submitInfo':
-        console.log();
-        if (state.username.length < 6) {
+        const existingUser = props.users.find(({ username }) => username === state.username)
+        if (existingUser) {
           return {
             ...state,
             valid: false,
-            displayedMessage: 'Username must be at least six characters.'
+            displayedMessage: 'Username is already taken.'
+          };
+        } else if (state.email.length < 3) {
+          return {
+            ...state,
+            valid: false,
+            displayedMessage: 'Email is invalid.'
+          }
+        } else if (state.name.length < 1){
+          return {
+            ...state,
+            valid: false,
+            displayedMessage: 'Name is required.'
+          }
+        } else if (state.username.length < 5) {
+          return {
+            ...state,
+            valid: false,
+            displayedMessage: 'Username must be at least five characters.'
           };
         } else if (state.password.length < 7) {
           return {
@@ -70,7 +100,7 @@ const SignUp = (props) => {
             displayedMessage: 'Passwords must match.'
           };
         } else if (
-          !/^(?=.*[0-9])(?=.*[a-z])(?=.*[!@#$%^&*])/.test(state.password)
+          !/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/.test(state.password)
         ) {
           return {
             ...state,
@@ -79,10 +109,13 @@ const SignUp = (props) => {
               'Passwords must contain at least one letter, one number, and one special character.'
           };
         } else {
+          console.log(state)
           return {
             ...state,
             valid: true,
             displayedMessage: 'Thanks for signing up!',
+            name: '',
+            email: '',
             username: '',
             password: '',
             passwordConfirm: ''
@@ -91,6 +124,8 @@ const SignUp = (props) => {
       case 'clearInput':
         return {
           ...state,
+          name: '',
+          email: '',
           username: '',
           password: '',
           passwordConfirm: '',
@@ -104,10 +139,20 @@ const SignUp = (props) => {
 
   const [state, dispatch] = useReducer(reducer, iState);
 
+  const addUser = async () => {
+    await axios.post(USER_BASE_URL, state)
+    .then(() => {
+      props.getUsers()
+    })
+  }
+  
   const submitInfo = (e) => {
     e.preventDefault();
-    dispatch({ type: 'submitInfo' });
-    console.log(state);
+    dispatch({ type: 'submitInfo' })
+    const existingUser = props.users.find(({ username }) => username === state.username)
+    if(state.nameValid && state.emailValid && state.usernameValid && state.passwordValid && state.passwordConfirmValid && (state.password === state.passwordConfirm) && !existingUser) {
+      addUser();
+    }
   };
 
   let validClass;
@@ -143,7 +188,7 @@ const SignUp = (props) => {
             dispatch({ type: 'addEmail', payload: e.target.value })
           }
         />
-        <label htmlFor="username">Name</label>
+        <label htmlFor="username">Email</label>
 
         <input
           type="text"
