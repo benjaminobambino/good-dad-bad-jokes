@@ -223,11 +223,20 @@ const SignUp = (props) => {
           }
         />
         <label htmlFor="passwordConfirm">Confirm password</label>
+        <p>For your own security, do NOT use a password that you use for other accounts.</p>
+          <p>Password must:</p>
+        <ul>
+          <li>be at least seven characters,</li>
+          <li>include at least one uppercase letter,</li>
+          <li>include at least one lowercase letter,</li>
+          <li>include at least one number,</li>
+          <li>and include at least one special character (!@#$%^&*).</li>
+        </ul>
 
         <button type="submit">Sign Up</button>
 
         <button type="button" onClick={() => dispatch({ type: 'clearInput' })}>
-          Cancel
+          Clear
         </button>
 
         <p className={validClass}>{state.displayedMessage}</p>
