@@ -223,6 +223,7 @@ const SignUp = (props) => {
           }
         />
         <label htmlFor="passwordConfirm">Confirm password</label>
+        
         <p>For your own security, do NOT use a password that you use for other accounts.</p>
           <p>Password must:</p>
         <ul>

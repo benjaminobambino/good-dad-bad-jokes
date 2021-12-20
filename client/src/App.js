@@ -9,6 +9,8 @@ import Jokes from './pages/Jokes';
 import SignUp from './forms/SignUp';
 import LogIn from './forms/LogIn';
 import Settings from './pages/Settings';
+import ChangePassword from './forms/ChangePassword';
+import DeleteAccount from './forms/DeleteAccount';
 import { JOKE_BASE_URL, USER_BASE_URL } from './globals';
 
 const App = () => {
@@ -110,12 +112,35 @@ const App = () => {
             )}
           />
           <Route
+            exact
             path="/settings"
             component={(props) => (
               <Settings
                 {...props}
                 users={users}
                 getUsers={getUsers}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                toggleLoggedIn={toggleLoggedIn}
+              />
+            )}
+          />
+          <Route
+            path="/settings/change-password"
+            render={(props) => (
+              <ChangePassword
+                {...props}
+                getUsers={getUsers}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            )}
+          />
+          <Route
+            path="/settings/delete-account"
+            render={(props) => (
+              <DeleteAccount
+                {...props}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
                 toggleLoggedIn={toggleLoggedIn}

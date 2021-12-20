@@ -25,7 +25,7 @@ const LogIn = (props) => {
 
   return (
 <div className="form">
-      <h1>Sign Up</h1>
+      <h1>Log In</h1>
       <form onSubmit={logIn}>
 
         <input

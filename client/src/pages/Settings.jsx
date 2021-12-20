@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const Settings = (props) => {
   const logOut = () => {
     props.toggleLoggedIn()
@@ -5,7 +7,9 @@ const Settings = (props) => {
   }
   return(
     <div>
-      <h1>Settings</h1>
+      <h3>Settings</h3>
+      <Link to="/settings/change-password"><p>Change Password</p></Link>
+      <Link to="/settings/delete-account"><p>Delete Account</p></Link>
       <button onClick={() => logOut()}>Log Out</button>
     </div>
   )
