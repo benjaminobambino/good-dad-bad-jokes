@@ -15,9 +15,9 @@ const Home = (props) => {
   return(
     <div>
       <p>{welcomeMessage}</p>
-      {!props.loggedIn ? (<div><Link to='/login'><h5>Log in</h5></Link> <h5> or </h5></div>) : null}
+      {!props.loggedIn ? (<div>If you'd like to contribute your own humor by adding new jokes and "liking" current jokes, <Link to="/signup">create an account</Link> and <Link to="/login">log in</Link>. Otherwise ...</div>) : null}
       <Link to="/jokes">
-        <h5>Let the Jokes Begin</h5>
+        <h4>Let the Jokes Begin</h4>
       </Link>
     </div>
   )
