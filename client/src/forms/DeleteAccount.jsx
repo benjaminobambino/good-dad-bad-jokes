@@ -15,9 +15,10 @@ const DeleteAccount = (props) => {
     await axios
       .delete(`${USER_BASE_URL}/${props.currentUser._id}`)
       .then(() => {
-        alert("Your account has been deleted. We're sad to see you go, but we hope you'll be back someday. We're not even joking!")
+        alert("Your account has been deleted. We're sad to see you go, but we hope you'll be back someday. We're not even joking.")
         props.setCurrentUser({})
         props.toggleLoggedIn()
+        props.getUsers()
         props.history.push('/')
       })
   }

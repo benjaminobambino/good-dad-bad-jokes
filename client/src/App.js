@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import Jokes from './pages/Jokes';
+import AddNewJoke from './forms/AddNewJoke';
 import SignUp from './forms/SignUp';
 import LogIn from './forms/LogIn';
 import Settings from './pages/Settings';
@@ -85,10 +86,23 @@ const App = () => {
               <Jokes
                 {...props}
                 jokes={jokes}
+                getJokes={getJokes}
                 getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
+                currentUser={currentUser}
                 decrementJokes={decrementJokes}
                 incrementJokes={incrementJokes}
+              />
+            )}
+          />
+          <Route
+            path="/add-new-joke"
+            render={(props) => (
+              <AddNewJoke
+                {...props}
+                jokes={jokes}
+                getJokes={getJokes}
+                currentUser={currentUser}
               />
             )}
           />
@@ -141,6 +155,7 @@ const App = () => {
             render={(props) => (
               <DeleteAccount
                 {...props}
+                getUsers={getUsers}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
                 toggleLoggedIn={toggleLoggedIn}

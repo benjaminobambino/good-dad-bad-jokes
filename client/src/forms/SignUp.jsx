@@ -140,10 +140,11 @@ const SignUp = (props) => {
   const [state, dispatch] = useReducer(reducer, iState);
 
   const addUser = async () => {
-    await axios.post(USER_BASE_URL, state)
-    .then(() => {
-      props.getUsers()
-    })
+    await axios
+      .post(USER_BASE_URL, state)
+      .then(() => {
+        props.getUsers()
+      })
   }
   
   const submitInfo = (e) => {

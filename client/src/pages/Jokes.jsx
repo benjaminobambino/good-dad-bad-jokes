@@ -9,9 +9,11 @@ const Jokes = (props) => {
   return(
     <div>
       <JokeCard 
-        currentJoke={props.currentJoke} 
-        decrementJokes={props.decrementJokes} 
-        incrementJokes={props.incrementJokes}
+        currentJoke={ props.currentJoke } 
+        currentUser={ props.currentUser }
+        getJokes={ props.getJokes }
+        decrementJokes={ props.decrementJokes } 
+        incrementJokes={ props.incrementJokes }
       />
     </div>
   )

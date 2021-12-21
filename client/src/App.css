@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.likes-container {
+  border: 1px solid black;
+  border-radius: 7px;
+}
+
+.likes-container:hover {
+  background-color: darkgray;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
