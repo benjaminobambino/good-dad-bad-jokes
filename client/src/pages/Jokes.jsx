@@ -9,11 +9,15 @@ const Jokes = (props) => {
   return(
     <div>
       <JokeCard 
-        currentJoke={ props.currentJoke } 
-        currentUser={ props.currentUser }
-        getJokes={ props.getJokes }
-        decrementJokes={ props.decrementJokes } 
-        incrementJokes={ props.incrementJokes }
+        currentJoke={props.currentJoke} 
+        currentUser={props.currentUser}
+        getJokes={props.getJokes}
+        getUsers={props.getUsers}
+        decrementJokes={props.decrementJokes} 
+        incrementJokes={props.incrementJokes}
+        loggedIn={props.loggedIn}
+        setCurrentUser={props.setCurrentUser}
+        setCurrentJoke={props.setCurrentJoke}
       />
     </div>
   )

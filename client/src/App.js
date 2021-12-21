@@ -87,11 +87,15 @@ const App = () => {
                 {...props}
                 jokes={jokes}
                 getJokes={getJokes}
+                getUsers={getUsers}
                 getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
                 currentUser={currentUser}
                 decrementJokes={decrementJokes}
                 incrementJokes={incrementJokes}
+                loggedIn={loggedIn}
+                setCurrentJoke={setCurrentJoke}
+                setCurrentUser={setCurrentUser}
               />
             )}
           />
