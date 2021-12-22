@@ -12,6 +12,7 @@ const About = () => {
       <ul>
         <li>Site Creation: <a href="https://www.linkedin.com/in/benjaminlpeck/" target="_blank" rel="noopener noreferrer">Benjamin Peck</a></li>
         <li>Laugh Icon: <a href="https://www.flaticon.com/authors/tulpahn" title="tulpahn" target="_blank" rel="noopener noreferrer">tulpahn</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a></li>
+        <li>Happy Dad Image: <a href="https://www.pinclipart.com/"target="_blank" rel="noopener noreferrer">Pinclipart.com</a></li>
         <li>Jokes: Everyone who has ever told me a joke</li>
       </ul>
       <h3>Contact</h3>
