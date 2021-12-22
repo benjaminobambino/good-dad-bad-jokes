@@ -9,7 +9,7 @@ const main = async () => {
   const jokes = [
     {
       setup:
-        'A cherry pie in Jamaica is $3.50. An apple pie in Belize is $4. A strawberry-rhubarb pie in Costa Rica is $2.50.',
+        'A cherry pie in Jamaica is $3.50. An apple pie in Barbados is $4. A strawberry-rhubarb pie in the Bahamas is $2.75.',
       punchline: 'These are the pie rates of the Caribbean.',
       likes: 0,
       author: contributingUser,
