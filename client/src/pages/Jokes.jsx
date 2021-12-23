@@ -8,6 +8,7 @@ const Jokes = (props) => {
 
   return(
     <div>
+      <h2>Jokes</h2>
       <JokeCard 
         currentJoke={props.currentJoke} 
         currentUser={props.currentUser}

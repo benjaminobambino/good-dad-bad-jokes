@@ -3,7 +3,7 @@ import { JOKE_BASE_URL, USER_BASE_URL } from "../globals"
 import laugh from "../pics/laugh.png"
 
 const JokeCard = (props) => {
-  const likedJoke = props.loggedIn ? props.currentUser.jokes_liked.includes(props.currentJoke._id) : null
+  const likedJoke = props.loggedIn && props.currentJoke ? props.currentUser.jokes_liked.includes(props.currentJoke._id) : null
 
   const toggleLiked = async () => {
     if (likedJoke) {

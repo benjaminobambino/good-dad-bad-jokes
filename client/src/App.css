@@ -20,6 +20,10 @@
   animation: colorshift 3s;
 }
 
+h2 {
+  font-family: 'Shadows Into Light', cursive;
+}
+
 .home p {
   margin: auto 10vw;
 }
