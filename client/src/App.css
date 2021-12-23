@@ -121,7 +121,6 @@ nav a:hover {
 }
 
 .joke-card {
-  /* margin: 5vh auto; */
   background-color: #07A0C3;
   padding: 1.5rem 2rem;
   box-shadow: 5px 15px 5px rgba(0, 0, 0, 0.15);
@@ -154,24 +153,31 @@ nav a:hover {
   margin: auto auto 2vh;
 }
 
-.likes-container:hover {
-  background-color: darkgray;
+#liked {
+  background-color: #DF2935;
+  color: #020122;
+}
+
+#not-liked {
+  background-color: #07A0C3;
+  color: #020122;
+}
+
+#not-liked:hover, #liked:hover {
+  background-color: #2e3e53;
 }
 
 .laugh-image {
   height: 25px;
 }
 
-/* .joke-buttons {
-  display: flex;
-  justify-content: space-evenly;
-} */
-
 .joke button {
+  margin: 5vh auto;
   font-size: large;
   height: 10vh;
   width: 10vw;
   min-width: 7rem;
+  box-shadow: 5px 15px 5px rgba(0, 0, 0, 0.15);
 }
 
 button {
