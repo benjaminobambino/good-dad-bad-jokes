@@ -9,6 +9,7 @@
   height: 100vh;
   font-family: 'Roboto', sans-serif;
   color: #020122;
+  overflow: scroll;
 }
 
 .home {
@@ -316,4 +317,22 @@ form ~ .valid {
 .valid::before {
   background: url("./pics/laugh.png");
   background-size: contain;
+}
+
+.about {
+  margin: auto 10vw 5vh 10vw;
+}
+
+ul {
+  text-align: left;
+  margin: 0 30vw;
+  list-style-position: outside;
+}
+
+.about p {
+  text-align: left;
+}
+
+.about .contact {
+  text-align: center;
 }
