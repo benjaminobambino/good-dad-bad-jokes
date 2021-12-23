@@ -33,9 +33,9 @@ const AddNewJoke = (props) => {
     const existingPunchline = props.jokes.find(({ punchline }) => punchline === inputValue.punchline)
     if (existingSetup || existingPunchline) {
       setDisplayedMessage("That joke has already been added. You shouldn't tell the same joke over and over ...")
-    } else if (inputValue.setup.length < 1) {
+    } else if (!inputValue.setup) {
       setDisplayedMessage('Come on. Get us ready to laugh with a good setup.')
-    } else if (inputValue.punchline.length < 1) {
+    } else if (!inputValue.punchline) {
       setDisplayedMessage('No punchline? You must be joking ...')
     } else {
       addJoke()
@@ -47,11 +47,9 @@ const AddNewJoke = (props) => {
       <h2>Add a New Joke</h2>
       <form onSubmit={validateSubmission}>
 
-      <p /*className={validClass}*/>{displayedMessage}</p>
-
       <textarea
           type="text"
-          placeholder="Joke Setup"
+          placeholder="Joke Setup (everything but the punchline)"
           id="setup"
           name="setup"
           onChange={handleChange}
@@ -68,6 +66,8 @@ const AddNewJoke = (props) => {
         <label htmlFor="punchline">Punchline</label>
 
         <button type="submit">Submit Your Joke</button>
+
+        <div className={displayedMessage ? 'invalid' : ''}>{displayedMessage}</div>
 
       </form>
     </div>
