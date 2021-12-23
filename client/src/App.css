@@ -287,8 +287,13 @@ input:not(:placeholder-shown) + label {
 }
 
 .form p, .form li {
-  margin-top: 0.5rem 0;
+  margin: 0.5rem 0;
   font-size: 12px;
+}
+
+form .submission-disclaimer {
+  margin-bottom: 2.5rem;
+  font-size: 16px;
 }
 
 .invalid,

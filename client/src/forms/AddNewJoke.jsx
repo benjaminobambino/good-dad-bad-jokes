@@ -46,6 +46,8 @@ const AddNewJoke = (props) => {
     <div className="form">
       <h2>Add a New Joke</h2>
       <form onSubmit={validateSubmission}>
+      
+      <p className="submission-disclaimer">Your submissions are welcome! Please remember, a "bad" joke does not mean a "dirty" joke. Let's be a good dad and keep it family-friendly.</p>
 
       <textarea
           type="text"
