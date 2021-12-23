@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const About = () => {
   return (
-    <div>
+    <div className="about">
       <h2>About</h2>
       <h3>The Jokes</h3>
       <p>Laughter is medicine for the soul. It's also fun! Anyone may enjoy the jokes by simply visiting the <Link to="/jokes">"Jokes"</Link> tab. If you'd like to contribute your own humor by adding new jokes and "liking" current jokes, <Link to="/signup">create an account</Link> and <Link to="/login">log in</Link>. Welcome and enjoy!</p>

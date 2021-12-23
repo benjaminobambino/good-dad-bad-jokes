@@ -43,12 +43,19 @@ const ChangePassword = (props) => {
     }
   };
 
+  let validClass;
+  if (!displayedMessage) {
+    validClass = '';
+  } else if (displayedMessage === 'Password has been updated.') {
+    validClass = 'valid';
+  } else {
+    validClass = 'invalid';
+  }
+
   return (
     <div className="form">
       <h2>Change Password</h2>
       <form onSubmit={updatePassword}>
-
-      <p /*className={validClass}*/>{displayedMessage}</p>
 
         <input
           type="password"
@@ -88,6 +95,8 @@ const ChangePassword = (props) => {
           <li>include at least one number,</li>
           <li>and include at least one special character (!@#$%^&*).</li>
         </ul>
+
+        <div className={validClass}>{displayedMessage}</div>
 
       </form>
     </div>

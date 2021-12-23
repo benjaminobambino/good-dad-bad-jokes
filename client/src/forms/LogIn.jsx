@@ -6,6 +6,7 @@ const LogIn = (props) => {
 
   const handleChange = (e) => {
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+    setDisplayedMessage('');
   };
 
   const logIn = (e) => {
@@ -48,7 +49,7 @@ const LogIn = (props) => {
 
         <button type="submit">Log In</button>
 
-        <p /*className={validClass}*/>{displayedMessage ? displayedMessage : ''}</p>
+        <div className={displayedMessage ? "invalid" : ''}>{displayedMessage ? displayedMessage : ''}</div>
       </form>
     </div>
   )

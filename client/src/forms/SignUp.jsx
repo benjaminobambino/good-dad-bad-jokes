@@ -241,7 +241,7 @@ const SignUp = (props) => {
           Clear
         </button>
 
-        <p className={validClass}>{state.displayedMessage}</p>
+        <div className={validClass}>{state.displayedMessage}</div>
       </form>
     </div>
   );
