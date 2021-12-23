@@ -4,8 +4,8 @@
 #### [GitHub](https://github.com/benjaminobambino) | [LinkedIn](https://www.linkedin.com/in/benjaminlpeck/) | [CodePen](https://codepen.io/benjaminobambino/)
 ***
 ### ***Description***
-#### "Good Dad Bad Jokes" is a browser-based, fullstack MERN (MongoDB, Express, React, and Node) app that does exactly what a good dad should: tell bad jokes. Upon launch, users can immediately enjoy jokes being pulled from the backend database. Users who sign up can "like" their favorite jokes and contribute their own jokes to the database.
-#### Jokes and user info are stored in the backend database and updated through the frontend user interface through axios.
+#### "Good Dad Bad Jokes" is a browser-based, full-stack MERN (MongoDB, Express, React, and Node) app that does exactly what a good dad should: tell bad jokes. Upon launch, users can immediately enjoy jokes being pulled from the back-end database. Users who sign up can "like" their favorite jokes and contribute their own jokes to the database.
+#### Jokes and user info are stored in the back-end database and updated by the front-end user interface through axios calls.
 ***
 ### ***Technologies Used***
 * MongoDB
