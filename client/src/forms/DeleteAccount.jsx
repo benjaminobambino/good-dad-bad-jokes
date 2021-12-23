@@ -46,8 +46,6 @@ const DeleteAccount = (props) => {
       <h2>Delete Account</h2>
       <form onSubmit={validateRequest}>
 
-      <div /*className={validClass}*/>{displayedMessage}</div>
-
       <input
           type="text"
           placeholder="Username"
@@ -76,6 +74,8 @@ const DeleteAccount = (props) => {
         <label htmlFor="confirm-new-password">Confirm New Password</label>
 
         <button type="submit">Delete Account</button>
+
+        <div className={displayedMessage ? 'invalid' : ''}>{displayedMessage}</div>
 
       </form>
     </div>
