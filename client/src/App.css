@@ -1,10 +1,11 @@
 .App {
   text-align: center;
+  background-color: #FFF1D0;
+  background-size: cover;
   background-image: url('./pics/PinClipart.com_entrepreneur-clipart_2887198.png');
   background-position: bottom left;
   background-size: 20vh;
   background-repeat: no-repeat;
-  background-color: #FFF1D0;
   height: 100vh;
   font-family: 'Roboto', sans-serif;
   color: #020122;
@@ -135,73 +136,82 @@ nav a:hover {
   height: 25px;
 }
 
-button,
-input {
-  border: none;
-  font-size: 1rem;
+.joke-buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 button {
   background-color: #020122;
-  color: #ffffff;
+  color: #FFF1D0;
   padding: 0.75rem 1rem;
-  transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
 }
 
-button + button {
-  margin-left: 0.25rem;
+.form button + button {
+  margin: 0 6rem;
 }
 
 button:focus {
-  box-shadow: 0 0 5px#07A0C3;
+  box-shadow: 0 0 5px#2e3e53;
   outline: none;
 }
 
 button:hover {
   background-color: #086788;
+  color: #020122;
 }
 
 form {
   background-color: #07A0C3;
-  color: #222222;
   padding: 1.5rem 2rem;
   text-align: left;
 }
 
 textarea {
-  border-bottom: 1px solid #532727;
   display: block;
-  margin: 1.5rem 0 0.5rem;
-  padding: 0.5rem 0;
-  transition: border 0.3s ease-in;
+  margin: 0.5rem 0 0.5rem;
+  height: 4.5rem;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 textarea:focus {
-  border-color: #1e90ff;
+  border-color: #2e3e53;
   outline: none;
 }
 
 textarea:focus + label,
 textarea:not(:placeholder-shown) + label {
   opacity: 1;
-  transform: translateY(-5.25rem);
+  transform: translateY(-7rem);
+}
+
+textarea + label {
+  color: #020122;
+  display: block;
+  opacity: 0;
+  transform: translateY(-5rem);
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
 }
 
 input {
-  border-bottom: 1px solid #532727;
   display: block;
-  margin: 1.5rem 0 0.5rem;
-  padding: 0.5rem 0;
-  transition: border 0.3s ease-in;
+  margin: 0.5rem -0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 input:focus {
-  border-color: #1e90ff;
+  border-color: #2e3e53;
   outline: none;
 }
 
-label {
-  color: #555555;
+input + label {
+  color: #020122;
   display: block;
   opacity: 0;
   transform: translateY(-2rem);
@@ -214,35 +224,18 @@ input:not(:placeholder-shown) + label {
   transform: translateY(-4.25rem);
 }
 
-input[type='text'],
-input[type='password'] {
-  width: 100%;
-}
-
-.cancel {
-  background-color: #ff0000;
-}
-
-.cancel:focus {
-  box-shadow: 0 0 5px #db0101;
-  outline: none;
-}
-
-.cancel:hover {
-  background-color: #ff0000;
-}
-
 .form {
-  background: 
-  /* url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%231e90ff' d='M421.4 0c-23.17 0-46.33 8.84-64 26.52l-6.28 6.28-23.43-23.43c-12.5-12.5-32.75-12.5-45.25 0L152.36 139.48c-3.12 3.12-3.12 8.19 0 11.31l11.31 11.31c3.12 3.12 8.19 3.12 11.31 0L305.07 32l23.42 23.43-234.55 234.6A327.069 327.069 0 0 0 .18 485.12l-.03.23C-1.45 499.72 9.88 512 23.94 512c.89 0 1.78-.05 2.69-.15a326.972 326.972 0 0 0 195.3-93.8L485.4 154.54C542.54 97.38 501.35 0 421.4 0zM199.31 395.42c-44.99 45-103.91 74.41-166.07 83.39 9.13-62.64 38.49-121.32 83.32-166.16l78.71-78.72 82.75 82.77-78.71 78.72zm263.46-263.51L300.64 294.07l-82.75-82.77L380.02 49.14C391.07 38.09 405.77 32 421.4 32c32.32 0 58.52 26.16 58.52 58.53-.01 15.63-6.09 30.33-17.15 41.38z'%3E%3C/path%3E%3C/svg%3E") */
-      /* no-repeat top 1rem right 2rem / 20%, */
-    linear-gradient(to left, #ffecae, #ffd241);
-  border: 1px solid #949494;
+  background: linear-gradient(to left, #ffecae, #ffd241);
   box-shadow: 5px 15px 5px rgba(0, 0, 0, 0.15);
-  width: 100%;
   margin: 20px auto;
   max-width: 400px;
   text-align: center;
+  overflow: scroll;
+}
+
+.form p, .form li {
+  margin-top: 0.5rem 0;
+  font-size: 12px;
 }
 
 .invalid,

@@ -46,7 +46,7 @@ const DeleteAccount = (props) => {
       <h2>Delete Account</h2>
       <form onSubmit={validateRequest}>
 
-      <p /*className={validClass}*/>{displayedMessage}</p>
+      <div /*className={validClass}*/>{displayedMessage}</div>
 
       <input
           type="text"

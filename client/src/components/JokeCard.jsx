@@ -34,17 +34,19 @@ const JokeCard = (props) => {
   return (
     <div>
       {props.currentJoke ? (
-        <div>
+        <div className="joke">
           <div className="joke-card">
-            <p>{ props.currentJoke.setup }</p>
-            <p>{ props.currentJoke.punchline }</p>
+            <p className="setup">{ props.currentJoke.setup }</p>
+            <p className="punchline">{ props.currentJoke.punchline }</p>
             <div className="likes-container" onClick={props.loggedIn ? toggleLiked : null}>
               <img src={laugh} alt="laugh" className="laugh-image" />
               <p>{ props.currentJoke.likes }</p>
             </div>
           </div>
+          <div className="joke-buttons">
             <button onClick={ props.decrementJokes }>Previous</button>
             <button onClick={ props.incrementJokes }>Next</button>
+          </div>
         </div>
       ) : null}
     </div>
