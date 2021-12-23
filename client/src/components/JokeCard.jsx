@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import axios from "axios"
 import { JOKE_BASE_URL, USER_BASE_URL } from "../globals"
 import laugh from "../pics/laugh.png"
 
 const JokeCard = (props) => {
+  const [displayedMessage, setDisplayedMessage] = useState('')
+
   const likedJoke = props.loggedIn && props.currentJoke ? props.currentUser.jokes_liked.includes(props.currentJoke._id) : null
 
   const toggleLiked = async () => {
@@ -39,6 +42,14 @@ const JokeCard = (props) => {
     likedId = 'not-liked'
   }
 
+  const likeWhileLoggedOut = () => {
+    if (!displayedMessage) {
+      setDisplayedMessage("You must be logged in for your laughter to be heard!")
+    } else {
+      setDisplayedMessage('')
+    }
+  }
+
   return (
     <div>
       {props.currentJoke ? (
@@ -49,11 +60,12 @@ const JokeCard = (props) => {
           <div className="joke-card">
             <p className="setup">{props.currentJoke.setup}</p>
             <div className="punchline-likes">
-            <p className="punchline">{props.currentJoke.punchline}</p>
-            <div className="likes-container" id={likedId} onClick={props.loggedIn ? toggleLiked : null}>
-              <img src={laugh} alt="laugh" className="laugh-image" />
-              <p>{props.currentJoke.likes}</p>
-            </div>
+              <p className="punchline">{props.currentJoke.punchline}</p>
+              <div className="likes-container" id={likedId} onClick={props.loggedIn ? toggleLiked : likeWhileLoggedOut}>
+                <img src={laugh} alt="laugh" className="laugh-image" />
+                <p>{props.currentJoke.likes}</p>
+              </div>
+              <p>{displayedMessage}</p>
             </div>
           </div>
           
