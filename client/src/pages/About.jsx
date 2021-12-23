@@ -5,9 +5,9 @@ const About = () => {
     <div className="about">
       <h2>About</h2>
       <h4>The Jokes</h4>
-      <p>Laughter is medicine for the soul. It's also fun! At "Good Dad Bad Jokes," anyone may enjoy the jokes by simply visiting the <Link to="/jokes">"Jokes"</Link> tab. If you'd like join the fun by adding new jokes and "liking" current jokes, <Link to="/signup">create an account</Link> and <Link to="/login">log in</Link>. Welcome and enjoy!</p>
+      <p>Laughter is medicine for the soul. It&#8217;s also fun! At &#8220;Good Dad Bad Jokes,&#8221; anyone may enjoy the jokes by simply visiting the <Link to="/jokes">&#8220;Jokes&#8221;</Link> tab. If you&#8217;d like to join the fun by adding new jokes and &#8220;liking&#8221; current jokes, <Link to="/signup">create an account</Link> and <Link to="/login">log in</Link>.</p>
       <h4>The Tech</h4>
-      <p>"Good Dad Bad Jokes" is a project created by Benjamin Peck for General Assembly's Software Engineering Immersive course. As required for project completion, this app is fullstack MERN (Mongo, Express, React, and Node) and full CRUD (Create, Read, Update, and Delete) with two backend databases.</p>
+      <p>&#8220;Good Dad Bad Jokes&#8221; is a project created by Benjamin Peck for General Assembly&#8217;s Software Engineering Immersive course. As required for project completion, this app is full-stack MERN (Mongo, Express, React, and Node) and full CRUD (Create, Read, Update, and Delete) with two back-end databases and front-end axios calls.</p>
       <h4>Credits</h4>
       <ul>
         <li>Site Creation: <a href="https://www.linkedin.com/in/benjaminlpeck/" target="_blank" rel="noopener noreferrer">Benjamin Peck</a></li>
