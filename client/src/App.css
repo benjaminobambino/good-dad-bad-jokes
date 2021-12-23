@@ -325,6 +325,10 @@ form ~ .valid {
 
 .about {
   margin: auto 10vw 5vh 10vw;
+  background-image: url('./pics/laugh.png');
+  background-repeat: no-repeat;
+  background-size: 10vh;
+  background-position: bottom 10vh right;
 }
 
 .about ul {
