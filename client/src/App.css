@@ -3,7 +3,7 @@
   background-color: #FFF1D0;
   background-size: cover;
   background-image: url('./pics/PinClipart.com_entrepreneur-clipart_2887198.png');
-  background-position: bottom left;
+  background-position: bottom 2vh left 3vw;
   background-size: 20vh;
   background-repeat: no-repeat;
   height: 100vh;
@@ -323,7 +323,7 @@ form ~ .valid {
   margin: auto 10vw 5vh 10vw;
 }
 
-ul {
+.about ul {
   text-align: left;
   margin: 0 30vw;
   list-style-position: outside;
