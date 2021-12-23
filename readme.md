@@ -9,15 +9,17 @@
 ***
 ### ***Technologies Used***
 * MongoDB
-  * Mongoose
+* Mongoose
 * Express
 * React
 * Node
+* JavaScript
 * CSS
   * Flexbox
+* HTML5
 ***
 ### ***Getting Started***
-#### A Trello board is being used to keep track of development progress. It can be viewed [here](https://trello.com/b/VXInuKS4/good-dad-bad-jokes).
+#### A Trello board was being used to keep track of development progress. It can be viewed [here](https://trello.com/b/VXInuKS4/good-dad-bad-jokes).
 #### The project will be deployed and able to be viewed on [Heroku](https://www.heroku.com/).
 #### Once launched, create a user account to add your own jokes, like jokes, and flag jokes. Otherwise, just open the app and enjoy the jokes!
 ***
@@ -26,8 +28,6 @@
 ![Entity Relationship Diagram](diagrams/erd.drawio.png)
 #### Component Hierarchy Diagram
 ![Component Hierarchy Diagram](diagrams/component-hierarchy-diagram.drawio.png)
-<!-- #### Rules Page
-![Rules Page](images/readme-pics/rules-page.png) -->
 ***
 ### ***Future Updates***
 - [ ] Add user's liked jokes component

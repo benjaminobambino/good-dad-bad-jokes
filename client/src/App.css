@@ -45,11 +45,6 @@ h2 {
   position: relative;
 }
 
-/* .header h3, nav, .home p, .home a, .home h4 {
-  animation: appear 3s;
-  animation-iteration-count: 1;
-} */
-
 .opening-appearing {
   animation: appear 3s;
   animation-iteration-count: 1;

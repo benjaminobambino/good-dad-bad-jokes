@@ -168,7 +168,7 @@ const SignUp = (props) => {
 
   return (
     <div className="form">
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
       <form onSubmit={submitInfo}>
       <input
           type="text"
