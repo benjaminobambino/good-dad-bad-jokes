@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const PublicNavBar = (props) => {
+const PublicNavBar = () => {
   return (
     <nav>
       <NavLink to="/">Home</NavLink>

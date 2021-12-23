@@ -1,11 +1,11 @@
 # Good Dad Bad Jokes
-## Date: 12/15/2021
+## Date: 12/23/2021
 ### By: Benjamin Peck
 #### [GitHub](https://github.com/benjaminobambino) | [LinkedIn](https://www.linkedin.com/in/benjaminlpeck/) | [CodePen](https://codepen.io/benjaminobambino/)
 ***
 ### ***Description***
-#### "Good Dad Bad Jokes" will be a browser-based, fullstack MERN (MongoDB, Express, React, and Node) app that does exactly what a good dad should: tell bad jokes. Users will be able to launch and immediately enjoy jokes being pulled from the backend database. Users who sign up will be able to "like" their favorite jokes, see the jokes they've "liked," and contribute their own jokes to the database.
-#### Jokes and user info will be stored in the backend database and updated through the frontend user interface through axios.
+#### "Good Dad Bad Jokes" is a browser-based, fullstack MERN (MongoDB, Express, React, and Node) app that does exactly what a good dad should: tell bad jokes. Upon launch, users can immediately enjoy jokes being pulled from the backend database. Users who sign up can "like" their favorite jokes and contribute their own jokes to the database.
+#### Jokes and user info are stored in the backend database and updated through the frontend user interface through axios.
 ***
 ### ***Technologies Used***
 * MongoDB

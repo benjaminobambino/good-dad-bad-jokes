@@ -232,7 +232,7 @@ const SignUp = (props) => {
           <li>include at least one uppercase letter,</li>
           <li>include at least one lowercase letter,</li>
           <li>include at least one number,</li>
-          <li>and include at least one special character (!@#$%^&*).</li>
+          <li>and include at least one special character (!@#$%^&amp;*).</li>
         </ul>
 
         <button type="submit">Sign Up</button>
