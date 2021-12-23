@@ -17,6 +17,9 @@
   background-image: none;
   height: 100vh;
   padding: 1px;
+}
+
+#home-background-animation {
   animation: colorshift 3s;
 }
 
@@ -42,7 +45,12 @@ h2 {
   position: relative;
 }
 
-.header h3, nav, .home p, .home a, .home h4 {
+/* .header h3, nav, .home p, .home a, .home h4 {
+  animation: appear 3s;
+  animation-iteration-count: 1;
+} */
+
+.opening-appearing {
   animation: appear 3s;
   animation-iteration-count: 1;
 }
@@ -110,9 +118,11 @@ nav a:hover {
 .laughing-dad {
   width: 250px;
   position: relative;
+}
+
+#dad-animation {
   animation-name: moveup;
   animation-duration: 4s;
-  animation-iteration-count: 1, 0;
 }
 
 @keyframes moveup {

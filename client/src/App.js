@@ -20,6 +20,7 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentJoke, setCurrentJoke] = useState({});
   const [currentUser, setCurrentUser] = useState('');
+  const [launched, setLaunched] = useState(false);
 
   const getJokes = async () => {
     const res = await axios.get(JOKE_BASE_URL);
@@ -31,9 +32,16 @@ const App = () => {
     setUsers(res.data.users);
   };
 
+  const postLaunch = () => {
+    setTimeout(() => {
+      setLaunched(true);
+    }, 4200);
+  };
+
   useEffect(() => {
     getJokes();
     getUsers();
+    postLaunch();
   }, []);
 
   const toggleLoggedIn = () => {
@@ -64,7 +72,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header loggedIn={loggedIn} />
+      <Header loggedIn={loggedIn} launched={launched} />
       <main>
         <Switch>
           <Route
@@ -76,6 +84,7 @@ const App = () => {
                 jokes={jokes}
                 loggedIn={loggedIn}
                 currentUser={currentUser}
+                launched={launched}
               />
             )}
           />
