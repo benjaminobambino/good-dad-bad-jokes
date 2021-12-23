@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url('./pics/PinClipart.com_entrepreneur-clipart_2887198.png');
+  background-position: bottom left;
+  background-size: 20vh;
+  background-repeat: no-repeat;
   background-color: #FFF1D0;
   height: 100vh;
   font-family: 'Roboto', sans-serif;
@@ -9,6 +13,15 @@
 .home {
   background-color: #FFF1D0;
   background-image: none;
+  height: 100vh;
+  padding: 1px;
+  animation: colorshift 3s;
+}
+
+@keyframes colorshift {
+  0% {background: #020122;}
+  75% {background: #020122;}
+  100% {background: #FFF1D0;}
 }
 
 .header {
@@ -16,17 +29,44 @@
   background-color: #020122;
   margin: 0;
   padding: 1vh 0 0 0;
+  position: relative;
+}
+
+.header h3, nav, .home p, .home a, .home h4 {
+  animation: appear 3s;
+  animation-iteration-count: 1;
+}
+
+@keyframes appear {
+  0% {opacity: 0;}
+  75% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 .good-dad {
   font-family: 'Mr Dafoe', cursive;
   margin: 5px auto -25px;
+  position: relative;
   font-size: 70px;
+  animation: shrinkandmoveup 1s;
+}
+
+@keyframes shrinkandmoveup {
+  0% {top: 100vw; font-size: 270px;}
+  100% {top: 0; font-size: 70px;}
 }
 
 .bad-jokes {
   font-family: 'Rock 3D', cursive;
   margin: 0 auto;
+  position: relative;
+  animation: moveleft 2s;
+}
+
+@keyframes moveleft {
+  0% {left: 100vw;}
+  50% {left: 100vw;}
+  100% {left: 0;}
 }
 
 .header h3 {
@@ -59,7 +99,16 @@ nav a:hover {
 
 .laughing-dad {
   width: 250px;
-  margin: 20px auto 20px;
+  position: relative;
+  animation-name: moveup;
+  animation-duration: 4s;
+  animation-iteration-count: 1, 0;
+}
+
+@keyframes moveup {
+  0%  {top: 100vh; right: 100vw;}
+  90% {top: 100vh; right: 100vw;}
+  100% {top: 0; right: 0;}
 }
 
 .joke-card {
@@ -235,39 +284,3 @@ form ~ .valid {
 .valid::before {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' fill='green' d='M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z'/%3E%3C/svg%3E");
 }
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
