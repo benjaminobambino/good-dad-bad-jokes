@@ -113,8 +113,15 @@ nav a:hover {
 }
 
 .joke-card {
-  border: 1px solid #020122;
-  margin: 5vh 25vw;
+  margin: 5vh auto;
+  background-color: #07A0C3;
+  padding: 1.5rem 2rem;
+  box-shadow: 5px 15px 5px rgba(0, 0, 0, 0.15);
+  max-width: 40vw;
+}
+
+.joke p {
+  font-size: x-large;
 }
 
 .likes-container {
@@ -122,7 +129,7 @@ nav a:hover {
   justify-content: space-evenly;
   align-items: center;
 
-  border: 1px solid black;
+  border: 1px solid #020122;
   border-radius: 12px;
   width: 80px;
   margin: auto auto 2vh;
@@ -139,6 +146,10 @@ nav a:hover {
 .joke-buttons {
   display: flex;
   justify-content: space-evenly;
+}
+
+.joke button {
+  font-size: large;
 }
 
 button {
@@ -236,12 +247,6 @@ input:not(:placeholder-shown) + label {
 .form p, .form li {
   margin-top: 0.5rem 0;
   font-size: 12px;
-}
-
-.error {
-  color: #DF2935;
-  font-weight: bold;
-  margin: 0.5rem auto;
 }
 
 .invalid,
