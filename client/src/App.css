@@ -20,6 +20,10 @@
   animation: colorshift 3s;
 }
 
+.home p {
+  margin: auto 10vw;
+}
+
 @keyframes colorshift {
   0% {background: #020122;}
   75% {background: #020122;}
