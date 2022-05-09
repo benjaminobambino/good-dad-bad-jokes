@@ -1,7 +1,7 @@
 ![Good Dad Bad Jokes](screenshots/title.png)
 ## Date: 12/23/2021
 ### By: Benjamin Peck
-#### [GitHub](https://github.com/benjaminobambino) | [LinkedIn](https://www.linkedin.com/in/benjaminlpeck/) | [CodePen](https://codepen.io/benjaminobambino/)
+#### [GitHub](https://github.com/benjaminobambino) | [LinkedIn](https://www.linkedin.com/in/benjaminlpeck/) | [Website](https://benjaminlpeck.vercel.app/)
 ***
 ### ***Description***
 #### "Good Dad Bad Jokes" is a browser-based, full-stack MERN (MongoDB, Express, React, and Node) app that does exactly what a good dad should: tell bad jokes. Upon launch, users can immediately enjoy jokes being pulled from the back-end database. Users who sign up can "like" their favorite jokes and contribute their own jokes to the database.
