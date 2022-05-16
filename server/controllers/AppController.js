@@ -129,7 +129,7 @@ const deleteJoke = async (req, res) => {
 };
 
 module.exports = {
-  createUser,
+  // createUser,
   createJoke,
   getAllJokes,
   getAllUsers,

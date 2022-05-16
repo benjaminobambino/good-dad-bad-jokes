@@ -1,8 +1,8 @@
 const { Router } = require('express');
-const controllers = require('../controllers');
+const controllers = require('../controllers/AppController');
 const router = Router();
 
-router.post('/users', controllers.createUser);
+// router.post('/users', controllers.createUser);
 router.post('/jokes', controllers.createJoke);
 
 router.get('/', (req, res) => res.send('This is root!'));

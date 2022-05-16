@@ -1,6 +1,7 @@
 const express = require('express');
-const routes = require('./routes');
 const db = require('./db');
+const AppRouter = require('./routes/AppRouter');
+const AuthRouter = require('./routes/AuthRouter');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const cors = require('cors');
@@ -13,7 +14,8 @@ app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 
-app.use('/api', routes);
+app.use('/api', AppRouter);
+app.use('/auth', AuthRouter);
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

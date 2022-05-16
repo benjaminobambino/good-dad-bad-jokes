@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { User } = require('../models/user');
+const { User } = require('../models');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -9,11 +9,11 @@ const APP_SECRET = process.env.APP_SECRET;
 const signup = async (req, res) => {
   try {
     req.body.password = await bcrypt.hash(req.body.password, SALT_ROUNDS);
-    const user = await new User(req.body);
-    await user.save();
-    return res.status(201).json({ user });
+    const user = await User.create(req.body);
+    return res.json(user);
   } catch (error) {
-    res.status(400).json({ error });
+    console.log(req);
+    return res.status(500).json({ error: error.message });
   }
 };
 
