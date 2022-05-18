@@ -40,6 +40,10 @@ const checkSession = (req, res) => {
   res.send(payload);
 };
 
+// TO DO
+// - updatePassword
+// - deleteUser
+
 module.exports = {
   signup,
   login,
