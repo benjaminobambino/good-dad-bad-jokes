@@ -39,6 +39,8 @@ const login = async (req, res) => {
   }
 };
 
+// TO DO: Add checkSession function
+
 module.exports = {
   signup,
   login
