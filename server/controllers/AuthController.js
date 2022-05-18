@@ -16,6 +16,30 @@ const signup = async (req, res) => {
   }
 };
 
+const login = async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.body.username });
+    if (user) {
+      const matchingPassword = await bcrypt.compare(
+        req.body.password,
+        user.password
+      );
+      console.log(req.body.password, user.password);
+      if (matchingPassword) {
+        const token = jwt.sign({ username: user.username }, APP_SECRET);
+        res.json({ token });
+      } else {
+        res.status(400).json({ error: "Password doesn't match" });
+      }
+    } else {
+      res.status(400).json({ error: "User doesn't exist" });
+    }
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 module.exports = {
-  signup
+  signup,
+  login
 };
