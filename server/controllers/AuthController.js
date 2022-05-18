@@ -1,8 +1,7 @@
 require('dotenv').config();
 const { User } = require('../models');
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { hashPassword, comparePassword } = require('../middleware');
+const { hashPassword, comparePassword, createToken } = require('../middleware');
 
 const APP_SECRET = process.env.APP_SECRET;
 
@@ -24,9 +23,11 @@ const login = async (req, res) => {
         req.body.password,
         user.password
       );
-      console.log(req.body.password, user.password);
       if (matchingPassword) {
-        const token = jwt.sign({ username: user.username }, APP_SECRET);
+        const token = jwt.sign(
+          { username: user.username, id: user.id },
+          APP_SECRET
+        );
         res.json({ token });
       } else {
         res.status(400).json({ error: "Password doesn't match" });

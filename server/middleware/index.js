@@ -15,6 +15,11 @@ const comparePassword = async (password, storedPassword) => {
   return passwordMatch;
 };
 
+const createToken = (payload) => {
+  let token = jwt.sign(payload, APP_SECRET);
+  return token;
+};
+
 const isLoggedIn = (req, res, next) => {
   try {
     if (req.headers.authorization) {
@@ -41,5 +46,6 @@ const isLoggedIn = (req, res, next) => {
 module.exports = {
   hashPassword,
   comparePassword,
+  createToken,
   isLoggedIn
 };
