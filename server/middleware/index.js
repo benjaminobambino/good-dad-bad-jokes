@@ -10,6 +10,11 @@ const hashPassword = async (password) => {
   return hashedPassword;
 };
 
+const comparePassword = async (password, storedPassword) => {
+  let passwordMatch = await bcrypt.compare(password, storedPassword);
+  return passwordMatch;
+};
+
 const isLoggedIn = (req, res, next) => {
   try {
     if (req.headers.authorization) {
@@ -35,5 +40,6 @@ const isLoggedIn = (req, res, next) => {
 
 module.exports = {
   hashPassword,
+  comparePassword,
   isLoggedIn
 };

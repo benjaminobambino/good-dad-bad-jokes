@@ -2,7 +2,7 @@ require('dotenv').config();
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { hashPassword } = require('../middleware');
+const { hashPassword, comparePassword } = require('../middleware');
 
 const APP_SECRET = process.env.APP_SECRET;
 
@@ -20,7 +20,7 @@ const login = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
     if (user) {
-      const matchingPassword = await bcrypt.compare(
+      const matchingPassword = await comparePassword(
         req.body.password,
         user.password
       );
