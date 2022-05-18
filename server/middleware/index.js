@@ -1,7 +1,14 @@
 require('dotenv').config();
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS);
 const APP_SECRET = process.env.APP_SECRET;
+
+const hashPassword = async (password) => {
+  const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+  return hashedPassword;
+};
 
 const isLoggedIn = (req, res, next) => {
   try {
@@ -27,5 +34,6 @@ const isLoggedIn = (req, res, next) => {
 };
 
 module.exports = {
+  hashPassword,
   isLoggedIn
 };

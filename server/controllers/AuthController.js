@@ -2,13 +2,13 @@ require('dotenv').config();
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { hashPassword } = require('../middleware');
 
-const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS);
 const APP_SECRET = process.env.APP_SECRET;
 
 const signup = async (req, res) => {
   try {
-    req.body.password = await bcrypt.hash(req.body.password, SALT_ROUNDS);
+    req.body.password = await hashPassword(req.body.password);
     const user = await User.create(req.body);
     return res.json(user);
   } catch (error) {
@@ -39,7 +39,7 @@ const login = async (req, res) => {
   }
 };
 
-const checkSession = async (req, res) => {
+const checkSession = (req, res) => {
   const { payload } = res.locals;
   res.send(payload);
 };
