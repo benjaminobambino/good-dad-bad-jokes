@@ -39,9 +39,13 @@ const login = async (req, res) => {
   }
 };
 
-// TO DO: Add checkSession function
+const checkSession = async (req, res) => {
+  const { payload } = res.locals;
+  res.send(payload);
+};
 
 module.exports = {
   signup,
-  login
+  login,
+  checkSession
 };
