@@ -50,8 +50,9 @@ const updatePassword = async (req, res) => {
       let password = await hashPassword(newPassword);
       await user.update({ password });
       return res.json({ status: 'Ok', payload: user });
+    } else {
+      res.status(400).send({ status: 'Error', msg: 'Unauthorized' });
     }
-    res.status(400).send({ status: 'Error', msg: 'Unauthorized' });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
