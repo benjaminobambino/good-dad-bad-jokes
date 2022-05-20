@@ -104,9 +104,6 @@ const deleteJoke = async (req, res) => {
   }
 };
 
-// TO DO:
-// move deleteUser to AuthController and update logic to require password
-
 module.exports = {
   createJoke,
   getAllJokes,
@@ -115,6 +112,5 @@ module.exports = {
   getFlaggedJokes,
   updateUser,
   updateJoke,
-  deleteUser,
   deleteJoke
 };
