@@ -11,5 +11,10 @@ router.post(
   controllers.updatePassword
 );
 router.get('/session', middleware.isLoggedIn, controllers.checkSession);
+router.delete(
+  '/delete-user/:id',
+  middleware.isLoggedIn,
+  controllers.deleteUser
+);
 
 module.exports = router;

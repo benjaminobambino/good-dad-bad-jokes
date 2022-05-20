@@ -64,12 +64,40 @@ const updatePassword = async (req, res) => {
   }
 };
 
-// TO DO
-// - deleteUser
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findOne({ _id: id });
+    if (user) {
+      const matchingPassword = await comparePassword(
+        req.body.password,
+        user.password
+      );
+      if (matchingPassword) {
+        const deleted = await User.findByIdAndDelete(id);
+        if (deleted) {
+          return res.json(`Deleted user with an id of ${id}`);
+        } else {
+          res.status(400).send({
+            status: 'Error',
+            msg: `Oops! The user with an id of ${id} has not been deleted. Please try again.`
+          });
+        }
+      } else {
+        res.status(400).send({ status: 'Error', msg: 'Invalid password' });
+      }
+    } else {
+      res.status(400).send({ status: 'Error', msg: 'Invalid user ID' });
+    }
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 module.exports = {
   signup,
   login,
   checkSession,
-  updatePassword
+  updatePassword,
+  deleteUser
 };
