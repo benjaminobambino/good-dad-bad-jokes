@@ -42,10 +42,27 @@ const checkSession = (req, res) => {
 
 // TO DO
 // - updatePassword
+const updatePassword = async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.body.username });
+    const { oldPassword, newPassword } = req.body;
+    if (user && (await comparePassword(oldPassword, user.password))) {
+      let password = await hashPassword(newPassword);
+      await user.update({ password });
+      return res.json({ status: 'Ok', payload: user });
+    }
+    res.status(400).send({ status: 'Error', msg: 'Unauthorized' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+// TO DO
 // - deleteUser
 
 module.exports = {
   signup,
   login,
-  checkSession
+  checkSession,
+  updatePassword
 };
