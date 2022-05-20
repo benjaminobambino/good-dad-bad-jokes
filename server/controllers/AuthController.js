@@ -40,18 +40,24 @@ const checkSession = (req, res) => {
   res.send(payload);
 };
 
-// TO DO
-// - updatePassword
 const updatePassword = async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.body.username });
-    const { oldPassword, newPassword } = req.body;
-    if (user && (await comparePassword(oldPassword, user.password))) {
-      let password = await hashPassword(newPassword);
-      await user.update({ password });
-      return res.json({ status: 'Ok', payload: user });
+    const user = await User.findOne({ _id: req.params.userId });
+    if (user) {
+      const { oldPassword, newPassword } = req.body;
+      const matchingPassword = await comparePassword(
+        oldPassword,
+        user.password
+      );
+      if (matchingPassword) {
+        let password = await hashPassword(newPassword);
+        await user.update({ password: password });
+        return res.json({ status: 'Ok', payload: user });
+      } else {
+        res.status(400).send({ status: 'Error', msg: 'Invalid password' });
+      }
     } else {
-      res.status(400).send({ status: 'Error', msg: 'Unauthorized' });
+      res.status(400).send({ status: 'Error', msg: 'Invalid user ID' });
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
