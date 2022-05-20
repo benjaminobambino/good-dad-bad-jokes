@@ -90,20 +90,6 @@ const updateJoke = async (req, res) => {
 };
 
 // DELETE -->
-const deleteUser = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleted = await User.findByIdAndDelete(id);
-    if (deleted) {
-      return res.status(200).send('The user has been deleted.');
-    }
-    throw new Error('User not found.');
-  } catch (error) {
-    console.log(error.message);
-    return res.status(500);
-  }
-};
-
 const deleteJoke = async (req, res) => {
   try {
     const { id } = req.params;

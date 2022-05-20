@@ -14,7 +14,6 @@ router.get('/jokes/flagged', controllers.getFlaggedJokes);
 router.put('/users/:id', middleware.isLoggedIn, controllers.updateUser);
 router.put('/jokes/:id', middleware.isLoggedIn, controllers.updateJoke);
 
-router.delete('/users/:id', middleware.isLoggedIn, controllers.deleteUser);
 router.delete('/jokes/:id', middleware.isLoggedIn, controllers.deleteJoke);
 
 module.exports = router;
