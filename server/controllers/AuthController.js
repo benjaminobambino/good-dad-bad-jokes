@@ -23,7 +23,7 @@ const login = async (req, res) => {
       if (matchingPassword) {
         const payload = { username: user.username, id: user.id };
         const token = createToken(payload);
-        res.json({ token });
+        res.json({ user: payload, token });
       } else {
         res.status(400).json({ error: "Password doesn't match" });
       }
