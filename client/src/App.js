@@ -13,6 +13,8 @@ import Settings from './pages/Settings';
 import ChangePassword from './forms/ChangePassword';
 import DeleteAccount from './forms/DeleteAccount';
 import { JOKE_BASE_URL, USER_BASE_URL } from './globals';
+import { CheckSession } from './services/Auth';
+import Client from './services/api';
 
 const App = () => {
   const [jokes, setJokes] = useState([]);
@@ -27,6 +29,14 @@ const App = () => {
     setJokes(res.data.jokes);
   };
 
+  const checkToken = async () => {
+    await CheckSession();
+    const id = localStorage.getItem('id');
+    const user = await Client.get(`/api/users/${id}`);
+    setCurrentUser(user.data.user);
+    setLoggedIn(true);
+  };
+
   const getUsers = async () => {
     const res = await axios.get(USER_BASE_URL);
     setUsers(res.data.users);
@@ -39,6 +49,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    checkToken();
     getJokes();
     getUsers();
     postLaunch();
