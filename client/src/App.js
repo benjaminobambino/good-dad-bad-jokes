@@ -172,7 +172,6 @@ const App = () => {
             render={(props) => (
               <ChangePassword
                 {...props}
-                getUsers={getUsers}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
               />
