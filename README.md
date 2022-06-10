@@ -32,6 +32,7 @@
 ![Submit New Jokes](screenshots/new-joke.png)
 ***
 ### ***Future Updates***
+- [ ] Add JWT Auth
 - [ ] Add user's liked jokes component
 - [ ] Add joke flagging functionality
 - [ ] Add functionality to minimize or eliminate repeated jokes
