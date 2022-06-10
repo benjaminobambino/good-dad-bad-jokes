@@ -21,7 +21,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentJoke, setCurrentJoke] = useState({});
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
   const [launched, setLaunched] = useState(false);
 
   const getJokes = async () => {
