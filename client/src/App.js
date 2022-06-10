@@ -29,12 +29,16 @@ const App = () => {
     setJokes(res.data.jokes);
   };
 
+  const getUser = async (userId) => {
+    const user = await Client.get(`/api/users/${userId}`);
+    setCurrentUser(user.data.user);
+    setLoggedIn(true);
+  };
+
   const checkToken = async () => {
     await CheckSession();
     const id = localStorage.getItem('id');
-    const user = await Client.get(`/api/users/${id}`);
-    setCurrentUser(user.data.user);
-    setLoggedIn(true);
+    getUser(id);
   };
 
   const getUsers = async () => {
