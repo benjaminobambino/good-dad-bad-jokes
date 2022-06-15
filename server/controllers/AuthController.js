@@ -66,6 +66,7 @@ const updatePassword = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   try {
+    console.log(req.body);
     const { id } = req.params;
     const user = await User.findOne({ _id: id });
     if (user) {
@@ -73,10 +74,11 @@ const deleteUser = async (req, res) => {
         req.body.password,
         user.password
       );
+      const { username } = req.body;
       if (matchingPassword) {
         const deleted = await User.findByIdAndDelete(id);
         if (deleted) {
-          return res.json(`Deleted user with an id of ${id}`);
+          return res.json({ msg: `${username}'s account has been deleted.` });
         } else {
           res.status(400).send({
             status: 'Error',
@@ -90,7 +92,7 @@ const deleteUser = async (req, res) => {
       res.status(400).send({ status: 'Error', msg: 'Invalid user ID' });
     }
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).send(error);
   }
 };
 

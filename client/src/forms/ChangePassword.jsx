@@ -11,8 +11,8 @@ const ChangePassword = (props) => {
   };
 
   const updatePassword = async (userId) => {
-    await Client.post(`/auth/update-password/${userId}`, inputValue).then((res) => {
-      console.log(res.data.payload)
+    await Client.post(`/auth/update-password/${userId}`, inputValue)
+    .then((res) => {
       props.setCurrentUser(res.data.payload);
       setDisplayedMessage('Password has been updated.')
   })
