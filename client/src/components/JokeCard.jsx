@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import axios from "axios"
-import { JOKE_BASE_URL, USER_BASE_URL } from "../globals"
+import Client from '../services/api'
+import { JOKE_URL_PARAMS, USER_URL_PARAMS } from '../globals'
 import laugh from "../pics/laugh.png"
 
 const JokeCard = (props) => {
@@ -14,19 +14,19 @@ const JokeCard = (props) => {
       props.currentJoke.likes -= 1
       props.setCurrentJoke({ ...props.currentJoke })
       props.currentUser.jokes_liked.splice(index, 1)
-      await axios.put(`${USER_BASE_URL}/${props.currentUser._id}`, {
+      await Client.put(`${USER_URL_PARAMS}/${props.currentUser._id}`, {
         jokes_liked: props.currentUser.jokes_liked
       })
-      await axios.put(`${JOKE_BASE_URL}/${props.currentJoke._id}`, {
+      await Client.put(`${JOKE_URL_PARAMS}/${props.currentJoke._id}`, {
         likes: props.currentJoke.likes
       })
     } else {
       props.currentJoke.likes += 1
-      await axios.put(`${JOKE_BASE_URL}/${props.currentJoke._id}`, {
+      await Client.put(`${JOKE_URL_PARAMS}/${props.currentJoke._id}`, {
         likes: props.currentJoke.likes
       })
       props.currentUser.jokes_liked.push(props.currentJoke._id)
-      await axios.put(`${USER_BASE_URL}/${props.currentUser._id}`, {
+      await Client.put(`${USER_URL_PARAMS}/${props.currentUser._id}`, {
         jokes_liked: props.currentUser.jokes_liked
       })
       .then(() => {

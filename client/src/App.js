@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import axios from 'axios';
 import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -12,23 +11,37 @@ import LogIn from './forms/LogIn';
 import Settings from './pages/Settings';
 import ChangePassword from './forms/ChangePassword';
 import DeleteAccount from './forms/DeleteAccount';
-import { JOKE_BASE_URL, USER_BASE_URL } from './globals';
+import { JOKE_URL_PARAMS, USER_URL_PARAMS } from './globals';
+import { CheckSession } from './services/Auth';
+import Client from './services/api';
 
 const App = () => {
   const [jokes, setJokes] = useState([]);
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentJoke, setCurrentJoke] = useState({});
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
   const [launched, setLaunched] = useState(false);
 
   const getJokes = async () => {
-    const res = await axios.get(JOKE_BASE_URL);
+    const res = await Client.get(JOKE_URL_PARAMS);
     setJokes(res.data.jokes);
   };
 
+  const getUser = async (userId) => {
+    const user = await Client.get(`${USER_URL_PARAMS}/${userId}`);
+    setCurrentUser(user.data.user);
+    setLoggedIn(true);
+  };
+
+  const checkToken = async () => {
+    await CheckSession();
+    const id = localStorage.getItem('id');
+    getUser(id);
+  };
+
   const getUsers = async () => {
-    const res = await axios.get(USER_BASE_URL);
+    const res = await Client.get(USER_URL_PARAMS);
     setUsers(res.data.users);
   };
 
@@ -39,6 +52,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    checkToken();
     getJokes();
     getUsers();
     postLaunch();
@@ -157,7 +171,6 @@ const App = () => {
             render={(props) => (
               <ChangePassword
                 {...props}
-                getUsers={getUsers}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
               />

@@ -1,16 +1,6 @@
 const { User, Joke } = require('../models');
 
 // POST -->
-const createUser = async (req, res) => {
-  try {
-    const user = await new User(req.body);
-    await user.save();
-    return res.status(201).json({ user });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-};
-
 const createJoke = async (req, res) => {
   try {
     const joke = await new Joke(req.body);
@@ -100,20 +90,6 @@ const updateJoke = async (req, res) => {
 };
 
 // DELETE -->
-const deleteUser = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleted = await User.findByIdAndDelete(id);
-    if (deleted) {
-      return res.status(200).send('The user has been deleted.');
-    }
-    throw new Error('User not found.');
-  } catch (error) {
-    console.log(error.message);
-    return res.status(500);
-  }
-};
-
 const deleteJoke = async (req, res) => {
   try {
     const { id } = req.params;
@@ -129,7 +105,6 @@ const deleteJoke = async (req, res) => {
 };
 
 module.exports = {
-  createUser,
   createJoke,
   getAllJokes,
   getAllUsers,
@@ -137,6 +112,5 @@ module.exports = {
   getFlaggedJokes,
   updateUser,
   updateJoke,
-  deleteUser,
   deleteJoke
 };

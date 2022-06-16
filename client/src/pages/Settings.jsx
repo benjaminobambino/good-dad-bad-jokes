@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 
 const Settings = (props) => {
   const logOut = () => {
+    localStorage.clear()
+    props.setCurrentUser({})
     props.toggleLoggedIn()
     props.history.push('/')
   }

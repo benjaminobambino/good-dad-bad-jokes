@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { SignInUser } from "../services/Auth";
+import Client from '../services/api'
 
 const LogIn = (props) => {
   const [inputValue, setInputValue] = useState([])
@@ -9,19 +11,15 @@ const LogIn = (props) => {
     setDisplayedMessage('');
   };
 
-  const logIn = (e) => {
+  const logIn = async (e) => {
     e.preventDefault();
-    const existingUser = props.users.find(({ username }) => username === inputValue.username)
-    if(!existingUser) {
-      setDisplayedMessage('Please enter a valid username.')
-    } else if (existingUser.password !== inputValue.password) {
-      setDisplayedMessage('Incorrect password.')
-    } else {
+      await SignInUser(inputValue, setDisplayedMessage)
       setDisplayedMessage('')
       props.toggleLoggedIn()
-      props.setCurrentUser(existingUser)
+      const id = localStorage.getItem('id')
+      const user = await Client.get(`/api/users/${id}`)
+      props.setCurrentUser(user.data.user)
       props.history.push('/')
-    }
   };
 
   return (

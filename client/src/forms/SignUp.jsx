@@ -1,6 +1,5 @@
-import axios from 'axios';
 import React, { useReducer } from 'react';
-import { USER_BASE_URL } from '../globals';
+import { RegisterUser } from '../services/Auth';
 
 const SignUp = (props) => {
 
@@ -109,7 +108,6 @@ const SignUp = (props) => {
               'Passwords must contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
           };
         } else {
-          console.log(state)
           return {
             ...state,
             valid: true,
@@ -140,8 +138,7 @@ const SignUp = (props) => {
   const [state, dispatch] = useReducer(reducer, iState);
 
   const addUser = async () => {
-    await axios
-      .post(USER_BASE_URL, state)
+    await RegisterUser(state)
       .then(() => {
         props.getUsers()
       })
