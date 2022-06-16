@@ -1,6 +1,6 @@
-import axios from "axios";
+import Client from "../services/api";
 import React, { useState } from "react";
-import { JOKE_BASE_URL } from "../globals";
+import { JOKE_URL_PARAMS } from "../globals";
 
 const AddNewJoke = (props) => {
   const [inputValue, setInputValue] = useState([])
@@ -12,8 +12,8 @@ const AddNewJoke = (props) => {
   };
 
   const addJoke = async () => {
-    await axios
-      .post(JOKE_BASE_URL, {
+    await Client
+      .post(JOKE_URL_PARAMS, {
         setup: inputValue.setup,
         punchline: inputValue.punchline,
         likes: 0,
