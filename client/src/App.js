@@ -25,7 +25,7 @@ const App = () => {
   const [launched, setLaunched] = useState(false);
 
   const getJokes = async () => {
-    const res = await axios.get(JOKE_BASE_URL);
+    const res = await Client.get(JOKE_BASE_URL);
     setJokes(res.data.jokes);
   };
 
