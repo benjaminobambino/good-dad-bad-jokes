@@ -9,14 +9,15 @@
 ***
 ### ***Technologies Used***
 * MongoDB
+* Node
 * Mongoose
 * Express
 * React
-* Node
 * JavaScript
 * CSS
   * Flexbox
-* HTML5
+* HTML
+* JWT Auth
 ***
 ### ***Getting Started***
 #### A Trello board was being used to keep track of development progress. It can be viewed [here](https://trello.com/b/VXInuKS4/good-dad-bad-jokes).
@@ -32,7 +33,7 @@
 ![Submit New Jokes](screenshots/new-joke.png)
 ***
 ### ***Future Updates***
-- [ ] Add JWT Auth
+- [x] Add JWT Auth
 - [ ] Add user's liked jokes component
 - [ ] Add joke flagging functionality
 - [ ] Add functionality to minimize or eliminate repeated jokes
