@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import Jokes from './pages/Jokes';
+import LikedJokes from './pages/LikedJokes';
 import AddNewJoke from './forms/AddNewJoke';
 import SignUp from './forms/SignUp';
 import LogIn from './forms/LogIn';
@@ -113,7 +114,29 @@ const App = () => {
                 getUsers={getUsers}
                 getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
+                getUser={getUser}
                 currentUser={currentUser}
+                decrementJokes={decrementJokes}
+                incrementJokes={incrementJokes}
+                loggedIn={loggedIn}
+                setCurrentJoke={setCurrentJoke}
+                setCurrentUser={setCurrentUser}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/your-liked-jokes"
+            render={(props) => (
+              <LikedJokes
+                {...props}
+                jokes={jokes}
+                getJokes={getJokes}
+                getUsers={getUsers}
+                getFirstJoke={getFirstJoke}
+                currentJoke={currentJoke}
+                currentUser={currentUser}
+                getUser={getUser}
                 decrementJokes={decrementJokes}
                 incrementJokes={incrementJokes}
                 loggedIn={loggedIn}
