@@ -34,7 +34,7 @@
 ***
 ### ***Future Updates***
 - [x] Add JWT Auth
-- [ ] Add user's liked jokes component
+- [x] Add user's liked jokes component
 - [ ] Add joke flagging functionality
 - [ ] Add functionality to minimize or eliminate repeated jokes
 - [ ] Add joke search feature
