@@ -21,6 +21,19 @@ const getAllJokes = async (req, res) => {
   }
 };
 
+const getJokeById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const joke = await Joke.findById(id);
+    if (joke) {
+      return res.status(200).json({ joke });
+    }
+    return res.status(404).send('Joke with specified ID does not exist.');
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -107,6 +120,7 @@ const deleteJoke = async (req, res) => {
 module.exports = {
   createJoke,
   getAllJokes,
+  getJokeById,
   getAllUsers,
   getUserById,
   getFlaggedJokes,

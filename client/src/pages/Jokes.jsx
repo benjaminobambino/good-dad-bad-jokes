@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import JokeCard from "../components/JokeCard";
 
-const Jokes = (props) => {
+const Jokes = (props) => {  
   useEffect(() => {
-    props.getFirstJoke()
-  }, [props.jokes]) 
+    const { getFirstJoke } = props
+
+    getFirstJoke()
+  }, []) 
 
   return(
     <div>
@@ -14,6 +16,7 @@ const Jokes = (props) => {
         currentUser={props.currentUser}
         getJokes={props.getJokes}
         getUsers={props.getUsers}
+        getUser={props.getUser}
         decrementJokes={props.decrementJokes} 
         incrementJokes={props.incrementJokes}
         loggedIn={props.loggedIn}

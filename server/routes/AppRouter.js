@@ -7,6 +7,7 @@ router.post('/jokes', middleware.isLoggedIn, controllers.createJoke);
 
 router.get('/', (req, res) => res.send('This is root!'));
 router.get('/jokes', controllers.getAllJokes);
+router.get('/jokes/:id', controllers.getJokeById);
 router.get('/users', controllers.getAllUsers);
 router.get('/users/:id', controllers.getUserById);
 router.get('/jokes/flagged', controllers.getFlaggedJokes);
