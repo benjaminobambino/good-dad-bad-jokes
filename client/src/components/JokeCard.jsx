@@ -2,8 +2,12 @@ import { useState } from 'react'
 import Client from '../services/api'
 import { JOKE_URL_PARAMS, USER_URL_PARAMS } from '../globals'
 import laugh from "../pics/laugh.png"
+import { useLocation } from 'react-router-dom'
 
 const JokeCard = (props) => {
+  const location = useLocation()
+  const navButtons = location.pathname === '/jokes' ? true : false
+
   const [displayedMessage, setDisplayedMessage] = useState('')
 
   const likedJoke = props.loggedIn && props.currentJoke ? props.currentUser.jokes_liked.includes(props.currentJoke._id) : null
@@ -16,6 +20,8 @@ const JokeCard = (props) => {
       props.currentUser.jokes_liked.splice(index, 1)
       await Client.put(`${USER_URL_PARAMS}/${props.currentUser._id}`, {
         jokes_liked: props.currentUser.jokes_liked
+      }).then(() => {
+        props.getUser(props.currentUser._id)
       })
       await Client.put(`${JOKE_URL_PARAMS}/${props.currentJoke._id}`, {
         likes: props.currentJoke.likes
@@ -55,7 +61,7 @@ const JokeCard = (props) => {
       {props.currentJoke ? (
         <div className="joke">
           
-          <button onClick={props.decrementJokes}>Previous</button>
+          {navButtons ? <button onClick={props.decrementJokes}>Previous</button> : null}
 
           <div className="joke-card">
             <p className="setup">{props.currentJoke.setup}</p>
@@ -69,7 +75,7 @@ const JokeCard = (props) => {
             </div>
           </div>
           
-          <button onClick={props.incrementJokes}>Next</button>
+          {navButtons ? <button onClick={props.incrementJokes}>Next</button>: null}
 
         </div>
       ) : null}
