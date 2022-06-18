@@ -1,12 +1,6 @@
-import React, { useEffect } from "react";
 import JokeCard from "../components/JokeCard";
 
 const Jokes = (props) => {  
-  useEffect(() => {
-    const { getFirstJoke } = props
-
-    getFirstJoke()
-  }, []) 
 
   return(
     <div>
