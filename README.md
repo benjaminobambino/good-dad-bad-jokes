@@ -20,8 +20,8 @@
 * JWT Auth
 ***
 ### ***Getting Started***
-#### A Trello board was being used to keep track of development progress. It can be viewed [here](https://trello.com/b/VXInuKS4/good-dad-bad-jokes).
-#### The project will be deployed and able to be viewed on [Heroku](https://www.heroku.com/) (Pending).
+#### A Trello board was used to keep track of development progress. It can be viewed [here](https://trello.com/b/VXInuKS4/good-dad-bad-jokes).
+#### The project has been deployed and able to be viewed at [GoodDadBadJokes.Vercel.app](https://gooddadbadjokes.vercel.app/).
 #### Once launched, create a user account to add your own jokes, like jokes, and flag jokes. Otherwise, just open the app and enjoy the jokes!
 ***
 ### ***Screenshots***
@@ -35,11 +35,11 @@
 ### ***Future Updates***
 - [x] Add JWT Auth
 - [x] Add user's liked jokes component
+- [ ] Mobile-friendly design
 - [ ] Add joke flagging functionality
 - [ ] Add functionality to minimize or eliminate repeated jokes
-- [ ] Add joke search feature
 - [ ] Add user's contributed jokes component
-- [ ] Mobile-friendly design
+- [ ] Add joke search feature
 - [ ] Add joke categories
 ***
 ### ***Credits***
