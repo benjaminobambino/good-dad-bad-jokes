@@ -7,11 +7,7 @@ let dbUrl =
     : 'mongodb://127.0.0.1:27017/jokesDatabase';
 
 mongoose
-  .connect(dbUrl, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useFindAndModify: true
-  })
+  .connect(dbUrl)
   .then(() => {
     console.log('Successfully connected to MongoDB.');
   })
