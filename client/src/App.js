@@ -24,21 +24,23 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [launched, setLaunched] = useState(false);
 
+  const getFirstJoke = (jokesArray) => {
+    const randomizer = Math.floor(Math.random() * jokesArray.length);
+    const index = randomizer - 1;
+    setCurrentJoke(jokesArray[index]);
+  };
+
   const getJokes = async () => {
-    const res = await Client.get(JOKE_URL_PARAMS);
-    setJokes(res.data.jokes);
+    await Client.get(JOKE_URL_PARAMS).then((res) => {
+      getFirstJoke(res.data.jokes);
+      setJokes(res.data.jokes);
+    });
   };
 
   const getUser = async (userId) => {
     const user = await Client.get(`${USER_URL_PARAMS}/${userId}`);
     setCurrentUser(user.data.user);
     setLoggedIn(true);
-  };
-
-  const checkToken = async () => {
-    await CheckSession();
-    const id = localStorage.getItem('id');
-    getUser(id);
   };
 
   const getUsers = async () => {
@@ -53,6 +55,12 @@ const App = () => {
   };
 
   useEffect(() => {
+    const checkToken = async () => {
+      await CheckSession();
+      const id = localStorage.getItem('id');
+      getUser(id);
+    };
+
     checkToken();
     getJokes();
     getUsers();
@@ -61,12 +69,6 @@ const App = () => {
 
   const toggleLoggedIn = () => {
     !loggedIn ? setLoggedIn(true) : setLoggedIn(false);
-  };
-
-  const getFirstJoke = () => {
-    const randomizer = Math.floor(Math.random() * jokes.length);
-    const index = randomizer - 1;
-    setCurrentJoke(jokes[index]);
   };
 
   const incrementJokes = () => {
@@ -112,7 +114,7 @@ const App = () => {
                 jokes={jokes}
                 getJokes={getJokes}
                 getUsers={getUsers}
-                getFirstJoke={getFirstJoke}
+                // getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
                 getUser={getUser}
                 currentUser={currentUser}
@@ -133,7 +135,7 @@ const App = () => {
                 jokes={jokes}
                 getJokes={getJokes}
                 getUsers={getUsers}
-                getFirstJoke={getFirstJoke}
+                // getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
                 currentUser={currentUser}
                 getUser={getUser}
