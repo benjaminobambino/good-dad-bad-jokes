@@ -26,9 +26,8 @@ const App = () => {
 
   const getFirstJoke = (jokesArray) => {
     const randomizer = Math.floor(Math.random() * jokesArray.length);
-    const index = randomizer - 1;
+    const index = randomizer;
     setCurrentJoke(jokesArray[index]);
-    console.log(index);
   };
 
   const getJokes = async () => {
