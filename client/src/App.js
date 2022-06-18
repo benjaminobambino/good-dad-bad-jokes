@@ -28,6 +28,7 @@ const App = () => {
     const randomizer = Math.floor(Math.random() * jokesArray.length);
     const index = randomizer - 1;
     setCurrentJoke(jokesArray[index]);
+    console.log(index);
   };
 
   const getJokes = async () => {
@@ -114,7 +115,6 @@ const App = () => {
                 jokes={jokes}
                 getJokes={getJokes}
                 getUsers={getUsers}
-                // getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
                 getUser={getUser}
                 currentUser={currentUser}
