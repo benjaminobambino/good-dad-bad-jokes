@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const PublicNavBar = (props) => {
+const PublicNavBar = ({ launched }) => {
   return (
-    <nav className={!props.launched ? 'opening-appearing' : null}>
+    <nav className={!launched ? 'opening-appearing' : null}>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/jokes">Jokes</NavLink>
       <NavLink to="/about">About</NavLink>
