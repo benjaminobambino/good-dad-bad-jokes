@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Client from "../services/api";
 
-const DeleteAccount = (props) => {
-  const [inputValue, setInputValue] = useState([])
+const DeleteAccount = ({ history, currentUser, setCurrentUser, toggleLoggedIn }) => {
+  const [inputValue, setInputValue] = useState({})
   const [displayedMessage, setDisplayedMessage] = useState('')
 
   const handleChange = (e) => {
@@ -12,24 +12,24 @@ const DeleteAccount = (props) => {
 
   const deleteUser = async () => {
     await Client
-      .delete(`/auth/delete-user/${props.currentUser._id}`, {
+      .delete(`/auth/delete-user/${currentUser._id}`, {
         data: inputValue})
       .then((res) => {
         alert(`${res.data.msg} We're sad to see you go, but we hope you'll be back someday. We're not even joking.`)
         localStorage.clear()
-        props.setCurrentUser({})
-        props.toggleLoggedIn()
-        props.getUsers()
-        props.history.push('/')
+        setCurrentUser({})
+        toggleLoggedIn()
+        history.push('/')
       })
       .catch((error) => {
-        setDisplayedMessage(`${error.message}`)
+        const response = error.response.data
+        setDisplayedMessage(`${response.status}: ${response.msg}`)
       })
   }
 
   const validateRequest = (e) => {
     e.preventDefault();
-    if (props.currentUser.username !== inputValue.username) {
+    if (currentUser.username !== inputValue.username) {
       setDisplayedMessage('Invalid username.')
     } else if (inputValue.password !== inputValue.confirmPassword) {
       setDisplayedMessage('Passwords do not match.')
@@ -38,7 +38,7 @@ const DeleteAccount = (props) => {
       if (confirmDeletion) {
         deleteUser()
       } else {
-        props.history.push('/settings')
+        history.push('/settings')
       }
     }
   };
