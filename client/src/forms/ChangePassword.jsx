@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Client from "../services/api";
 
-const ChangePassword = (props) => {
+const ChangePassword = ({ currentUser, setCurrentUser }) => {
   const [inputValue, setInputValue] = useState({})
   const [displayedMessage, setDisplayedMessage] = useState('')
 
@@ -13,7 +13,7 @@ const ChangePassword = (props) => {
   const updatePassword = async (userId) => {
     await Client.post(`/auth/update-password/${userId}`, inputValue)
     .then((res) => {
-      props.setCurrentUser(res.data.payload);
+      setCurrentUser(res.data.payload);
       setDisplayedMessage('Password has been updated.')
   })
 }
@@ -27,7 +27,7 @@ const ChangePassword = (props) => {
     } else if (!/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/.test(inputValue.newPassword)) {
       setDisplayedMessage('Passwords must contain at least one uppercase letter, one lowercase letter, one number, and one special character.')
     } else {
-      updatePassword(props.currentUser._id)
+      updatePassword(currentUser._id)
     }
   };
 
