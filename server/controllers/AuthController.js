@@ -86,10 +86,10 @@ const deleteUser = async (req, res) => {
           });
         }
       } else {
-        res.status(400).send({ status: 'Error', msg: 'Invalid password' });
+        res.status(400).send({ status: 'Error', msg: 'Invalid password.' });
       }
     } else {
-      res.status(400).send({ status: 'Error', msg: 'Invalid user ID' });
+      res.status(400).send({ status: 'Error', msg: 'Invalid user ID.' });
     }
   } catch (error) {
     res.status(400).send(error);

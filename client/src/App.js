@@ -26,7 +26,7 @@ const App = () => {
 
   const getFirstJoke = (jokesArray) => {
     const randomizer = Math.floor(Math.random() * jokesArray.length);
-    const index = randomizer - 1;
+    const index = randomizer;
     setCurrentJoke(jokesArray[index]);
   };
 
@@ -114,7 +114,6 @@ const App = () => {
                 jokes={jokes}
                 getJokes={getJokes}
                 getUsers={getUsers}
-                // getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
                 getUser={getUser}
                 currentUser={currentUser}

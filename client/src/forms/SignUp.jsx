@@ -1,7 +1,11 @@
+// TO DO:
+// - move existing user check to server
+// - remove users and getUsers
+// - useState instead of useReducer
 import React, { useReducer } from 'react';
 import { RegisterUser } from '../services/Auth';
 
-const SignUp = (props) => {
+const SignUp = ({ users, getUsers }) => {
 
   const iState = {
     name: '',
@@ -61,7 +65,7 @@ const SignUp = (props) => {
             passwordConfirmValid: true,
           };
       case 'submitInfo':
-        const existingUser = props.users.find(({ username }) => username === state.username)
+        const existingUser = users.find(({ username }) => username === state.username)
         if (existingUser) {
           return {
             ...state,
@@ -140,14 +144,14 @@ const SignUp = (props) => {
   const addUser = async () => {
     await RegisterUser(state)
       .then(() => {
-        props.getUsers()
+        getUsers()
       })
   }
   
   const submitInfo = (e) => {
     e.preventDefault();
     dispatch({ type: 'submitInfo' })
-    const existingUser = props.users.find(({ username }) => username === state.username)
+    const existingUser = users.find(({ username }) => username === state.username)
     const meetsConditions = state.nameValid && state.emailValid && (state.email.length >= 3) && state.usernameValid && (state.username.length >= 5) && state.passwordValid && (state.password.length >= 7) && /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/.test(state.password) && state.passwordConfirmValid && (state.password === state.passwordConfirm) && !existingUser
     if(meetsConditions) {
       addUser();

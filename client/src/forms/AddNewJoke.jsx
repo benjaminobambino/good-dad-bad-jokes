@@ -2,8 +2,8 @@ import Client from "../services/api";
 import React, { useState } from "react";
 import { JOKE_URL_PARAMS } from "../globals";
 
-const AddNewJoke = (props) => {
-  const [inputValue, setInputValue] = useState([])
+const AddNewJoke = ({ history, getJokes, jokes, currentUser }) => {
+  const [inputValue, setInputValue] = useState({author: currentUser._id})
   const [displayedMessage, setDisplayedMessage] = useState('')
 
   const handleChange = (e) => {
@@ -13,24 +13,18 @@ const AddNewJoke = (props) => {
 
   const addJoke = async () => {
     await Client
-      .post(JOKE_URL_PARAMS, {
-        setup: inputValue.setup,
-        punchline: inputValue.punchline,
-        likes: 0,
-        author: props.currentUser._id,
-        flagged: false
-      })
+      .post(JOKE_URL_PARAMS, inputValue)
       .then(() => {
-        props.getJokes()
+        getJokes()
         alert("Your joke has been added!")
-        props.history.push('/jokes')
+        history.push('/jokes')
       })
   }
 
   const validateSubmission = (e) => {
     e.preventDefault();
-    const existingSetup = props.jokes.find(({ setup }) => setup === inputValue.setup)
-    const existingPunchline = props.jokes.find(({ punchline }) => punchline === inputValue.punchline)
+    const existingSetup = jokes.find(({ setup }) => setup === inputValue.setup)
+    const existingPunchline = jokes.find(({ punchline }) => punchline === inputValue.punchline)
     if (existingSetup || existingPunchline) {
       setDisplayedMessage("That joke has already been added. You shouldn't tell the same joke over and over ...")
     } else if (!inputValue.setup) {
