@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import { SignInUser } from "../services/Auth";
 import Client from '../services/api'
 
-const LogIn = (props) => {
+const LogIn = ({ history, toggleLoggedIn, setCurrentUser }) => {
   const [inputValue, setInputValue] = useState([])
   const [displayedMessage, setDisplayedMessage] = useState('')
 
   const handleChange = (e) => {
-    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-    setDisplayedMessage('');
+    setInputValue({ ...inputValue, [e.target.name]: e.target.value })
+    setDisplayedMessage('')
   };
 
   const logIn = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
       await SignInUser(inputValue, setDisplayedMessage)
       setDisplayedMessage('')
-      props.toggleLoggedIn()
+      toggleLoggedIn()
       const id = localStorage.getItem('id')
       const user = await Client.get(`/api/users/${id}`)
-      props.setCurrentUser(user.data.user)
-      props.history.push('/')
+      setCurrentUser(user.data.user)
+      history.push('/')
   };
 
   return (
