@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { JOKE_URL_PARAMS } from "../globals";
 
 const AddNewJoke = ({ history, getJokes, jokes, currentUser }) => {
-  const [inputValue, setInputValue] = useState([])
+  const [inputValue, setInputValue] = useState({author: currentUser._id})
   const [displayedMessage, setDisplayedMessage] = useState('')
 
   const handleChange = (e) => {
@@ -13,13 +13,7 @@ const AddNewJoke = ({ history, getJokes, jokes, currentUser }) => {
 
   const addJoke = async () => {
     await Client
-      .post(JOKE_URL_PARAMS, {
-        setup: inputValue.setup,
-        punchline: inputValue.punchline,
-        likes: 0,
-        author: currentUser._id,
-        flagged: false
-      })
+      .post(JOKE_URL_PARAMS, inputValue)
       .then(() => {
         getJokes()
         alert("Your joke has been added!")
