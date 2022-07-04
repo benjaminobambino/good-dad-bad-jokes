@@ -101,7 +101,6 @@ const App = () => {
             component={(props) => (
               <Home
                 {...props}
-                jokes={jokes}
                 loggedIn={loggedIn}
                 currentUser={currentUser}
                 launched={launched}
@@ -114,9 +113,6 @@ const App = () => {
             render={(props) => (
               <Jokes
                 {...props}
-                jokes={jokes}
-                getJokes={getJokes}
-                getUsers={getUsers}
                 currentJoke={currentJoke}
                 getUser={getUser}
                 currentUser={currentUser}
@@ -124,7 +120,6 @@ const App = () => {
                 incrementJokes={incrementJokes}
                 loggedIn={loggedIn}
                 setCurrentJoke={setCurrentJoke}
-                setCurrentUser={setCurrentUser}
               />
             )}
           />
@@ -134,17 +129,12 @@ const App = () => {
             component={(props) => (
               <LikedJokes
                 {...props}
-                jokes={jokes}
-                getJokes={getJokes}
-                getUsers={getUsers}
-                currentJoke={currentJoke}
                 currentUser={currentUser}
                 getUser={getUser}
                 decrementJokes={decrementJokes}
                 incrementJokes={incrementJokes}
                 loggedIn={loggedIn}
                 setCurrentJoke={setCurrentJoke}
-                setCurrentUser={setCurrentUser}
               />
             )}
           />
@@ -171,8 +161,6 @@ const App = () => {
             render={(props) => (
               <LogIn
                 {...props}
-                users={users}
-                getUsers={getUsers}
                 toggleLoggedIn={toggleLoggedIn}
                 setCurrentUser={setCurrentUser}
               />
@@ -184,9 +172,6 @@ const App = () => {
             component={(props) => (
               <Settings
                 {...props}
-                users={users}
-                getUsers={getUsers}
-                currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
                 toggleLoggedIn={toggleLoggedIn}
               />
@@ -207,7 +192,6 @@ const App = () => {
             render={(props) => (
               <DeleteAccount
                 {...props}
-                getUsers={getUsers}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
                 toggleLoggedIn={toggleLoggedIn}
