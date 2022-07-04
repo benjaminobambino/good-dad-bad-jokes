@@ -32,7 +32,6 @@ const App = () => {
 
   const getJokes = async () => {
     await Client.get(JOKE_URL_PARAMS).then((res) => {
-      getFirstJoke(res.data.jokes);
       setJokes(res.data.jokes);
     });
   };
@@ -66,6 +65,10 @@ const App = () => {
     getUsers();
     postLaunch();
   }, []);
+
+  useEffect(() => {
+    getFirstJoke(jokes);
+  }, [jokes]);
 
   const toggleLoggedIn = () => {
     !loggedIn ? setLoggedIn(true) : setLoggedIn(false);
@@ -134,7 +137,6 @@ const App = () => {
                 jokes={jokes}
                 getJokes={getJokes}
                 getUsers={getUsers}
-                // getFirstJoke={getFirstJoke}
                 currentJoke={currentJoke}
                 currentUser={currentUser}
                 getUser={getUser}
