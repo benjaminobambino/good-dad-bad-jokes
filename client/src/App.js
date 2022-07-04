@@ -131,7 +131,7 @@ const App = () => {
           <Route
             exact
             path="/your-liked-jokes"
-            render={(props) => (
+            component={(props) => (
               <LikedJokes
                 {...props}
                 jokes={jokes}
