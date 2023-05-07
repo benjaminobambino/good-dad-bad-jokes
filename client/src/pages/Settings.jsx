@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 
-const Settings = (props) => {
+const Settings = ({ history, setCurrentUser, toggleLoggedIn}) => {
   const logOut = () => {
     localStorage.clear()
-    props.setCurrentUser({})
-    props.toggleLoggedIn()
-    props.history.push('/')
+    setCurrentUser({})
+    toggleLoggedIn()
+    history.push('/')
   }
   return(
     <div>
