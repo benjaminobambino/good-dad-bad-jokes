@@ -1,21 +1,18 @@
 import JokeCard from "../components/JokeCard";
 
-const Jokes = (props) => {  
+const Jokes = ({ loggedIn, currentJoke, currentUser, setCurrentJoke, getUser, decrementJokes, incrementJokes }) => {  
 
   return(
     <div>
       <h2>Jokes</h2>
       <JokeCard 
-        currentJoke={props.currentJoke} 
-        currentUser={props.currentUser}
-        getJokes={props.getJokes}
-        getUsers={props.getUsers}
-        getUser={props.getUser}
-        decrementJokes={props.decrementJokes} 
-        incrementJokes={props.incrementJokes}
-        loggedIn={props.loggedIn}
-        setCurrentUser={props.setCurrentUser}
-        setCurrentJoke={props.setCurrentJoke}
+        currentJoke={currentJoke} 
+        currentUser={currentUser}
+        getUser={getUser}
+        decrementJokes={decrementJokes} 
+        incrementJokes={incrementJokes}
+        loggedIn={loggedIn}
+        setCurrentJoke={setCurrentJoke}
       />
     </div>
   )
